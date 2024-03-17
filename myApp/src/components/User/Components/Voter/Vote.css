@@ -1,0 +1,53 @@
+
+.Vote-Page{
+    /* border: 1px solid red; */
+    /* background-image: url('../../../Home/Images/img2.jpg'); */
+    background-color: rgb(231, 231, 231);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+.candidate{
+    /* border: 1px solid green; */
+    margin: 0rem 1rem;
+    padding: 3rem;
+
+}
+
+.TableRow{
+    background-color: rgb(6, 89, 6);
+
+}
+.TableRow .table_row_heading{
+    font-size: 4rem;
+
+}
+.Heading1{
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.Heading1 p{
+    font-weight: bold;
+    font-size: 1.7rem;
+}
+.Heading1 p span{
+    font-weight: bold;
+    color: green;
+}
+.Name-Row{
+    /* border: 1px solid green; */
+    margin: 0.5rem;
+}
+.Name-Row img{
+    width: 10%;
+    height: 10%;
+}
+.User-Card1{
+    width: 25%;
+    height: 25%;
+    margin: 0.5rem auto;
+    margin-top: 2rem;
+}

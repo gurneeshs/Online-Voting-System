@@ -1,0 +1,15 @@
+
+.Admin-Body{
+    /* border: 1px solid red; */
+    display: grid;
+    grid-template-columns: 23% 77%;
+}
+
+.SideNav{
+    /* border: 1px solid green; */
+    height: 100%;
+}
+
+.Main-Content{
+    /* border: 1px solid blue; */
+}
