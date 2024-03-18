@@ -6,10 +6,13 @@ const express = require('express');
 const router = express.Router();
 const {createVoter, getVoters} = require('../Controller/Voters');
 const photoUpload = require('../Middleware/photoUpload');
+const multer = require('multer');
+const upload = multer({dest:'./publicUploads/VoterPhotos'});
 
 /**********************************************************************************************/
 // POST METHOD
-router.post('/createVoter',createVoter);
+// photoUpload();
+router.post('/createVoter',photoUpload,createVoter);
 
 /**********************************************************************************************/
 router.get('/getVoter',getVoters);

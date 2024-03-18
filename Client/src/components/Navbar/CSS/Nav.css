@@ -1,9 +1,8 @@
 
 .Nav{
-    /* border: 1px solid green; */
     padding: 0.1rem;
-    display:flex;
-    overflow: hidden;
+    display:block;
+    /* overflow: hidden; */
     width: 100%;
     /* border-radius: 0.5rem; */
     font-size: 1rem;

@@ -1,6 +1,7 @@
 // external inputs
-const multer = require("multer");
 const path = require("path");
+const multer = require("multer");
+
 const createError = require("http-errors");
 
 function uploader(
@@ -33,14 +34,14 @@ function uploader(
         limits:{
             fileSize:max_file_size,
         },
-        fileFilter: (req,file,cb)=>{
-            if(allowed_file_types.includes(file.mimetype)){
-                cb(null,true)
-            }
-            else{
-                cb(createError(error_msg));
-            }
-        }
+        // fileFilter: (req,file,cb)=>{
+        //     if(allowed_file_types.includes(file.mimetype)){
+        //         cb(null,true)
+        //     }
+        //     else{
+        //         cb(createError(error_msg));
+        //     }
+        // }
     })
     return upload;
 }

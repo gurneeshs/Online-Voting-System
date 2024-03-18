@@ -34,7 +34,7 @@ const voterSchema = new mongoose.Schema({
         type:Number,
         unique:true,
     },
-    photo:{
+    image:{
         type:String,
     },
     email:{

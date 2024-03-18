@@ -4,9 +4,10 @@ import signupimage from "./SignUtils/images/signup-image.jpg"
 import { Link } from 'react-router-dom';
 import "./SignUtils/CSS/style.css.map"
 import Nav_bar from "../Navbar/Navbar";
+import { useState } from "react";
+import axios from "axios"
 
-
-const Signup = () => {
+const Signup = () => {    
     return (
         <div >
             <Nav_bar/>
@@ -15,7 +16,7 @@ const Signup = () => {
                     <div className="signup-content">
                         <div className="signup-form">
                             <h2 className="form-title">Registration</h2>
-                            <form method="POST" className="register-form" id="register-form" action="http://localhost:5000/createVoter">
+                            <form method="POST" enctype="multipart/form-data" className="register-form" id="register-form" action="http://localhost:5000/createVoter"  >
                                 <div className="form-group">
                                     <label for="firstName"><i className="zmdi zmdi-account material-icons-name"></i></label>
                                     <input type="text" name="firstName" id="firstName" placeholder="Your First Name" />
@@ -41,8 +42,8 @@ const Signup = () => {
                                     <input type="number" name="phone" id="phone" placeholder="Your Phone Number" />
                                 </div>
                                 <div className="form-group">
-                                    <label for="photo"><i className="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="file" name="photo" id="photo" placeholder="Upload Your Photo" />
+                                    <label for="image"><i className="zmdi zmdi-account material-icons-name"></i></label>
+                                    <input type="file" name="image" id="image" placeholder="Upload Your Photo"/>
                                 </div>
                                 <div className="form-group">
                                     <label for="email"><i className="zmdi zmdi-email"></i></label>
@@ -61,8 +62,8 @@ const Signup = () => {
                                     <label for="agree-term" className="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" className="term-service">Terms of service</a></label>
                                 </div>
                                 <div className="form-group form-button">
-                                    <input type="submit" name="signup" id="signup" className="form-submit" value="Register" />
-                                </div>
+                                    <input type="submit" name="signup" id="signup" className="form-submit" value="Submit" />
+                                </div> 
                             </form>
                         </div>
                         <div className="signup-image">

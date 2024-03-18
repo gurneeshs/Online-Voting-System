@@ -14,13 +14,16 @@ import TableRow from '@mui/material/TableRow';
 import TextField from "@mui/material/TextField";
 import { Button } from '@mui/material';
 import axios from 'axios';
-
+const path = '../../../../../Server/publicUploads/VoterPhotos';
 
 const columns = [
-    { id: 'firstName', label: `FirstName`, minWidth: 150 },
-    { id: 'lastName', label: 'LastName', minWidth: 150 },
+    { id: 'image', label: `Photo`, minWidth: 100 },
+    { id: 'firstName', label: `FirstName`, minWidth: 120 },
+    { id: 'lastName', label: 'LastName', minWidth: 120 },
+    { id: 'age', label: 'Age', minWidth: 70 },
+    { id: 'voterid', label: 'VoterID', minWidth: 120 },
     { id: 'email', label: 'Email', minWidth: 150 },
-    { id: 'phone', label: 'Phone', minWidth: 140 },
+    { id: 'phone', label: 'Phone', minWidth: 110 },
     { id: 'action', label: 'Action', minWidth: 200 },
 
 ];
@@ -89,8 +92,11 @@ export default function Voter() {
                                 {voters.map((row) => {
                                     return(
                                         <StyledTableRow key={row.firstName} className='Table-Row'>
+                                        <StyledTableCell className='Table-Row' align='left'><img src={require(`../../../../../Server/publicUploads/VoterPhotos/${row.image}`)}/></StyledTableCell>
                                         <StyledTableCell className='Table-Row' component="th" scope="row">{row.firstName}</StyledTableCell>
                                         <StyledTableCell className='Table-Row' align='left'>{row.lastName}</StyledTableCell>
+                                        <StyledTableCell className='Table-Row' align='left'>{row.age}</StyledTableCell>
+                                        <StyledTableCell className='Table-Row' align='left'>{row.voterid}</StyledTableCell> 
                                         <StyledTableCell className='Table-Row' align="left">{row.email}</StyledTableCell>
                                         <StyledTableCell className='Table-Row' align="left">{row.phone}</StyledTableCell>
                                         <StyledTableCell className='Table-Row' align="left">

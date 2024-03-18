@@ -1,21 +1,25 @@
 
 const bcrypt = require("bcrypt");
 const path = require("path");
+const multer = require('multer')
 
 const Voters = require('../Model/Voters');
 
-exports.createVoter = async (req,res)=>{
+exports.createVoter = async(req,res)=>{
     try{
         let newVoter;
-        const hashedPassword = await bcrypt.hash(req.body.password, 15);
-
+        // const hashedPassword = await bcrypt.hash(req.body.password, 15);
+        // console.log(req.file.filename);
         newVoter = new Voters({
             ...req.body,
-            photo:req.files[0].filename,
-            password:hashedPassword
+            image:req.files[0].filename,
+            // password:hashedPassword
         });
-        console.log(newVoter);
+        // console.log(newVoter);
+        // console.log(req.target.files[0]);
         await newVoter.save();
+
+        return res.status(200).json("data createdd successfully");
     
                 
     }
