@@ -63,7 +63,7 @@ export default function Voter() {
 
     const [voters, setVoters] = useState([]);
     useEffect(() =>{
-        axios.get('http://localhost:5000/getVoter')
+        axios.get('/getVoter')
         .then((response) => setVoters(response.data.voter)) 
         .catch(err => console.error("Error fetching data: ", err));        
     },[])

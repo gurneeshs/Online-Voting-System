@@ -3,15 +3,31 @@ import "./SignUtils/CSS/style.css.map"
 import "./SignUtils/fonts/material-icon/css/material-design-iconic-font.min.css"
 import ScriptTag from 'react-script-tag';
 import signinimage from "./SignUtils/images/signin-image.jpg"
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Nav_bar from "../Navbar/Navbar";
+import axios from "axios";
 
 const Login = () => {
-    <ScriptTag type="text/javascript" src="vendor/jquery/jquery.min.js"/>
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleLogin = async () => {
+        try {
+            const response = await axios.post('http://localhost:5000/login', {
+                username,
+                password,
+            });
+            console.log(response.data.message);
+            // Redirect user or perform any other action after successful login
+        } catch (error) {
+            console.error('Error logging in:', error);
+        }
+    };
 
     return (
         <div >
-            <Nav_bar/>
+            <Nav_bar />
             <section className="sign-in">
                 <div className="container">
                     <div className="signin-content">
@@ -22,14 +38,14 @@ const Login = () => {
 
                         <div className="signin-form">
                             <h2 className="form-title">Sign In</h2>
-                            <form method="POST" className="register-form" id="login-form">
+                            <form method="POST" className="register-form" id="login-form" action="/login">
                                 <div className="form-group">
-                                    <label for="your_name"><i className="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="text" name="your_name" id="your_name" placeholder="Your Name" />
+                                    <label for="email"><i className="zmdi zmdi-account material-icons-name"></i></label>
+                                    <input type="email" name="email" id="email" placeholder="Enter Email" onChange={(e) => setUsername(e.target.value)}/>
                                 </div>
                                 <div className="form-group">
-                                    <label for="your_pass"><i className="zmdi zmdi-lock"></i></label>
-                                    <input type="password" name="your_pass" id="your_pass" placeholder="Password" />
+                                    <label for="pass"><i className="zmdi zmdi-lock"></i></label>
+                                    <input type="password" name="pass" id="pass" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
                                 </div>
                                 <div className="form-group">
                                     <input type="checkbox" name="remember-me" id="remember-me" className="agree-term" />

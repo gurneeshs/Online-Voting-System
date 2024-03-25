@@ -17,6 +17,7 @@ import rahul_img from '../../User/Components/Voter/Images/rahul.jpeg'
 import TextField from "@mui/material/TextField";
 import { Button } from '@mui/material';
 import axios from 'axios';
+import CreateCandidate from './CreateCandidate'
 
 
 const columns = [
@@ -73,7 +74,7 @@ export default function CandidateTable() {
     };
     const [candidate, setCandidate] = useState([]);
     useEffect(() =>{
-        axios.get('http://localhost:5000/getCandidate')
+        axios.get('/getCandidate')
         .then((response) => setCandidate(response.data.candidate)) 
         .catch(err => console.error("Error fetching data: ", err));        
     },[])
@@ -81,7 +82,7 @@ export default function CandidateTable() {
     return (
         <div className='Candidates'>
             <h5>Candidates</h5>
-            <Button id='AddNew' variant="contained">Add New Candidate</Button>
+            <Button id='AddNew' variant="contained"><CreateCandidate/></Button>
             <div className='Table'>
                 <Paper sx={{ width: '100%', overflow: 'hidden' }}>
                     <TableContainer sx={{ maxHeight: 440 }}>

@@ -7,7 +7,9 @@ h5{
 }
 .Voters .Table{
     /* border: 1px solid red; */
+    overflow: scroll;
     padding: 1rem;
+    /* width: 80%; */
 }
 #AddNew{
     background-color: rgb(0, 81, 0);

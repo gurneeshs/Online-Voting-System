@@ -1,42 +1,51 @@
-
+// import Login from '../../Client/src/components/Sign/Login'
 const bcrypt = require("bcrypt");
 const path = require("path");
 const multer = require('multer')
 
-const Voters = require('../Model/Voters');
 
-exports.createVoter = async(req,res)=>{
-    try{
+const Voters = require('../Model/Voters');
+const { checkLogin } = require("../Middleware/checkLogin");
+
+exports.createVoter = async (req, res) => {
+    try {
         let newVoter;
-        // const hashedPassword = await bcrypt.hash(req.body.password, 15);
+        const hashedPassword = await bcrypt.hash(req.body.pass, 15);
         // console.log(req.file.filename);
         newVoter = new Voters({
             ...req.body,
-            image:req.files[0].filename,
-            // password:hashedPassword
+            image: req.files[0].filename,
+            pass: hashedPassword
         });
         // console.log(newVoter);
         // console.log(req.target.files[0]);
         await newVoter.save();
+        return res.redirect("http://localhost:3000/Login");
 
-        return res.status(200).json("data createdd successfully");
-    
-                
+
     }
-    catch(e){
-        return res.status(400).json({success:false,message:e.message});
+    catch (e) {
+        return res.status(400).json({ success: false, message: e.message });
     }
 }
 
-exports.getVoters = async (req,res)=>{
+exports.getVoters = async (req, res) => {
     const voter = await Voters.find();
-    return res.json({success:true,voter});
+    return res.json({ success: true, voter });
 }
 
-// exports.getTaskbyID = async (req,res)=>{
-//     const task = await Task.findById(req.params.id);
-//     return res.json({success:true,task});
-// }
+exports.getVoterbyID = async (req, res) => {
+    try {
+        const voterID = req.cookies.Voter;
+        console.log(voterID);
+        const voter = await Voters.findById(voterID);
+        return res.json({ success: true, voter });
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Server Error' });
+    }
+}
 
 // exports.updateTask = async (req,res)=>{
 //     try{

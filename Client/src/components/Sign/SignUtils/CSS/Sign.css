@@ -276,7 +276,11 @@ display-flex, .display-flex, .display-flex-center, .signup-content, .signin-cont
   figure {
     margin-bottom: 50px;
     text-align: center; }
-  
+  .toast-message{
+    padding: 4rem;
+    font-size: 1rem;
+
+  }
   .form-submit {
     display: inline-block;
     background: #6dabe4;

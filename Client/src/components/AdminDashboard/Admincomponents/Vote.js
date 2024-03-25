@@ -33,7 +33,7 @@ export default function BasicCard() {
     };
     const [votes, setVotes] = useState([]);
     useEffect(() =>{
-        axios.get('http://localhost:5000/getVotes')
+        axios.get('/getVotes')
         .then((response) => setVotes(response.data.votes)) 
         .catch(err => console.error("Error fetching data: ", err));        
     },[])
