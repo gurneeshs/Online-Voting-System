@@ -1,0 +1,24 @@
+
+.Admin-Body{
+    /* border: 1px solid red; */
+    /* display: grid; */
+    /* margin-top: 1rem; */
+    display: flex;
+    /* position: relative; */
+    /* margin-top: 2rem; */
+    /* grid-template-columns: 23% 77%; */
+}
+
+.SideNav{
+    /* border: 1px solid green; */
+    display: block;
+    height: 0%;
+}
+
+.Main-Content{
+    /* border: 1px solid blue; */
+    width: 100%;
+    /* width: 0%; */
+    /* height: 50%; */
+    overflow-x: scroll;
+}

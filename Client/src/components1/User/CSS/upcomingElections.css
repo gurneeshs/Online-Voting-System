@@ -1,0 +1,50 @@
+.upcomingElections{
+    /* border: 1px solid red; */
+    padding: 3rem 1rem;
+    overflow: hidden;
+}
+
+.upcomingElections h2{
+    color: white;
+    margin: 0rem auto;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.upcomingElections .upcomingElectionsCardContainer{
+    /* border: 1px solid red; */
+    padding: 1.5rem 0.5rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+.upcomingElections .upcomingElectionsCardContainer .upcomingElectionCard{
+    /* border: 1px solid green; */
+    padding: 1rem;
+    margin: 0.5rem;
+    width: 30%;
+    background-color: #89c4ee;
+    border-radius: 4% ;
+} 
+.upcomingElections .upcomingElectionsCardContainer .upcomingElectionCard:hover{
+    background-color:whitesmoke;
+    border: 2px solid #89c4ee;
+    /* color: white; */
+    cursor: pointer;
+}
+.upcomingElections .upcomingElectionsCardContainer .upcomingElectionCard h3{
+
+}
+.upcomingElections .upcomingElectionsCardContainer .upcomingElectionCard p{
+
+}
+.upcomingElections .upcomingElectionsCardContainer .upcomingElectionCard button{
+    background-color: black;
+    color: #89c4ee;
+    padding: 0.5rem;
+    border-radius: 6%;
+}
+.upcomingElections .upcomingElectionsCardContainer .upcomingElectionCard button a{
+    text-decoration: none;
+}

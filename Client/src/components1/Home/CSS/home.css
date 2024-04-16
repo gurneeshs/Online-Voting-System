@@ -1,0 +1,23 @@
+
+.Home{
+    /* border: 1px solid red; */
+    padding: 0rem;
+    /* background-color: rgba(223, 223, 226, 0.529); */
+    background-color: black;
+    align-items: center;
+    justify-content: center;
+
+}
+.Home-content{
+    /* border:1px solid blue; */
+    border-radius: 0.1rem;
+    margin: 0rem auto;
+    padding: 0rem;
+    background-color: black;
+    width: 100%;
+    
+}
+.Home-content img{
+    width: 100%;
+    height: 100%;
+}
