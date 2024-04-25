@@ -14,6 +14,8 @@ const upload = multer({ dest: './publicUploads/VoterPhotos' });
 /**********************************************************************************************/
 // POST METHOD
 // photoUpload();
+// const storage = multer.memoryStorage();
+// const upload = multer({ storage: storage });
 router.post('/createVoter', photoUpload, createVoter);
 
 /**********************************************************************************************/

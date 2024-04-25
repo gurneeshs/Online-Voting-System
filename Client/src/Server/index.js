@@ -17,6 +17,7 @@ const photoUpload = require('./Middleware/photoUpload');
 
 // const multer = require('multer')
 const { createVoter, getVoters } = require('./Controller/Voters');
+const DB = "mongodb+srv://gsnarang:kqdzddJCjxRanlGO@atlascluster.4ambzdp.mongodb.net/?retryWrites=true&w=majority&appName=AtlasCluster"
 
 
 const Voters = require('./Model/Voters');
@@ -29,7 +30,12 @@ dotenv.config();
 /**********************************************************************************************/
 
 // CONNECTING THE DATABASE
-mongoose.connect('mongodb://127.0.0.1:27017/OnlineVoting').then(() => {
+mongoose.connect(DB, {
+    useNewUrlParser: true,
+    // useCreateIndex: true,
+    useUnifiedTopology: true,
+    // useFindAndModify: false
+}).then(() => {
     console.log('database is connected');
 }).catch((err) => {
     console.log(err);

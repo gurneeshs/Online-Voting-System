@@ -13,8 +13,14 @@ exports.createVoter = async (req, res) => {
         const hashedPassword = await bcrypt.hash(req.body.pass, 15);
         // console.log(req.file.filename);
         newVoter = new Voters({
-            ...req.body,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            age: req.body.age,
+            dob: req.body.dob,
+            voterId: req.body.voterId,
+            phone: req.body.phone,
             image: req.files[0].filename,
+            email: req.body.email,
             pass: hashedPassword
         });
         // console.log(newVoter);
@@ -46,24 +52,25 @@ exports.getVoterbyID = async (req, res) => {
     }
 }
 
-exports.updateVoter = async (req,res)=>{
-    try{
-        const voter = await Voters.findByIdAndUpdate(req.params.id, req.body, {new:true, runValidators:true});
+exports.updateVoter = async (req, res) => {
+    try {
+        const voter = await Voters.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
 
-        if(!voter){
+        if (!voter) {
             return res.status(404).json({
-                success:false,
-                message:'Voter not found'})
+                success: false,
+                message: 'Voter not found'
+            })
         }
         return res.json({
-            success:true,
+            success: true,
             voter
         });
     }
-    catch(e){
+    catch (e) {
         return res.status(400).json({
-            success:false,
-            message:e.message
+            success: false,
+            message: e.message
         })
     }
 }
