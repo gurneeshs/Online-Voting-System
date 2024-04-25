@@ -20,9 +20,9 @@ function Nav_bar() {
             navbarScroll
           >
             <Nav.Link className="Nav-items" href="/" >Home</Nav.Link>
-            <Nav.Link className="Nav-items" href="https://musical-pudding-460731.netlify.app/Signup">New Registration</Nav.Link>
-            <Nav.Link className="Nav-items" href="https://musical-pudding-460731.netlify.app/Login">Login</Nav.Link>
-            <Nav.Link className="Nav-items" href="https://musical-pudding-460731.netlify.app/Admin">Admin</Nav.Link>
+            <Nav.Link className="Nav-items" href="/Signup">New Registration</Nav.Link>
+            <Nav.Link className="Nav-items" href="/Login">Login</Nav.Link>
+            <Nav.Link className="Nav-items" href="/Admin">Admin</Nav.Link>
 
 
             <NavDropdown title="Link" id="navbarScrollingDropdown">
