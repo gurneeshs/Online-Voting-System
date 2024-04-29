@@ -24,11 +24,10 @@ To run the project locally, follow these steps:
 1. Clone this repository to your local machine.
 2. Navigate to the project directory.
 3. Install dependencies for both the server and client:
-cd server
-npm install
-
-cd ../client
-npm install
+  - cd server
+  - npm install
+  - cd ../client
+  - npm install
 
 4. Configure environment variables:
 Create a .env file in the server directory.
@@ -45,8 +44,8 @@ npm start
 ## Contributing
 Contributions are welcome! Please feel free to submit bug reports, feature requests, or pull requests.
 
-Fork the repository.
-Create a new branch (git checkout -b feature/fooBar).
-Commit your changes (git commit -am 'Add some fooBar').
-Push to the branch (git push origin feature/fooBar).
-Create a new Pull Request.
+- Fork the repository.
+- Create a new branch (git checkout -b feature/fooBar).
+- Commit your changes (git commit -am 'Add some fooBar').
+- Push to the branch (git push origin feature/fooBar).
+- Create a new Pull Request.
