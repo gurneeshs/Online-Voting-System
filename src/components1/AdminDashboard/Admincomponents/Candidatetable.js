@@ -73,11 +73,11 @@ export default function CandidateTable() {
         setPage(0);
     };
     const [candidate, setCandidate] = useState([]);
-    useEffect(() =>{
-        axios.get('https://online-voting-system-6kzpm7c71-gurneeshs-projects-96b84c60.vercel.app/getCandidate')
-        .then((response) => setCandidate(response.data.candidate)) 
-        .catch(err => console.error("Error fetching data: ", err));        
-    },[])
+    // useEffect(() =>{
+    //     axios.get('https://online-voting-system-6kzpm7c71-gurneeshs-projects-96b84c60.vercel.app/getCandidate')
+    //     .then((response) => setCandidate(response.data.candidate)) 
+    //     .catch(err => console.error("Error fetching data: ", err));        
+    // },[])
 
     return (
         <div className='Candidates'>
