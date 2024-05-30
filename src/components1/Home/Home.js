@@ -19,7 +19,7 @@ const Home = () => {
             <About/>
             <Features/>
             <FAQ/>
-            <Contact/>
+            {/* <Contact/> */}
                 {/* <div>
                     <h1>Welcome to Online Voting System</h1>
                     <p>This is a platform where you can participate in various online voting events.</p>

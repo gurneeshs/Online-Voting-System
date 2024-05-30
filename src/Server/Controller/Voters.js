@@ -17,7 +17,7 @@ exports.createVoter = async (req, res) => {
             lastName: req.body.lastName,
             age: req.body.age,
             dob: req.body.dob,
-            voterId: req.body.voterId,
+            voterid: req.body.voterid,
             phone: req.body.phone,
             image: req.files[0].filename,
             email: req.body.email,
