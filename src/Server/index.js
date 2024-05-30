@@ -24,7 +24,12 @@ const Voters = require('./Model/Voters');
 const multer = require('multer');
 
 // var cors = require('cors');
-app.use(cors());
+app.use(cors(
+    {
+        origin: ["https://online-voting-system-three.vercel.app"],
+        methods: ["POST", "GET"],
+        credentials: true
+));
 dotenv.config();
 
 /**********************************************************************************************/
