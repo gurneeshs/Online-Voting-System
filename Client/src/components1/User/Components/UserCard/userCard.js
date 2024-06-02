@@ -13,7 +13,7 @@ export default function UserCard() {
     // const token = localStorage.getItem('token'); // Assuming token is stored in localStorage
     // console.log(token);
     const fetchData = async () => {
-      await axios.get('/getVoterbyID')
+      await axios.get('https://online-voting-system-smoky.vercel.app/getVoterbyID')
         .then((response) => {
           setVoter(response.data.voter);
         })

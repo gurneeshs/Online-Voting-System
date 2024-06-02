@@ -31,7 +31,7 @@ export default class Signup extends Component {
                         <div className="signup-content">
                             <div className="signup-form">
                                 <h2 className="form-title">Registration</h2>
-                                <form method="POST" enctype="multipart/form-data" className="register-form" id="register-form" onSubmit={notify} action="/createVoter"  >
+                                <form method="POST" enctype="multipart/form-data" className="register-form" id="register-form" onSubmit={notify} action="https://online-voting-system-smoky.vercel.app/createVoter"  >
                                 <ToastContainer />
                                     <div className="form-group">
                                         <label for="firstName"><i className="zmdi zmdi-account material-icons-name"></i></label>

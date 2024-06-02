@@ -33,7 +33,7 @@ export default function BasicCard() {
     };
     const [votes, setVotes] = useState([]);
     useEffect(() =>{
-        axios.get('/getVotes')
+        axios.get('https://online-voting-system-smoky.vercel.app/getVotes')
         .then((response) => setVotes(response.data.votes)) 
         .catch(err => console.error("Error fetching data: ", err));        
     },[])

@@ -63,7 +63,7 @@ export default function Voter() {
 
     const [voters, setVoters] = useState([]);
     useEffect(() =>{
-        axios.get('/getVoter')
+        axios.get('https://online-voting-system-smoky.vercel.app/getVoter')
         .then((response) => setVoters(response.data.voter)) 
         .catch(err => console.error("Error fetching data: ", err));        
     },[])
@@ -92,7 +92,7 @@ export default function Voter() {
                                 {voters.map((row) => {
                                     return(
                                         <StyledTableRow key={row.firstName} className='Table-Row'>
-                                        <StyledTableCell className='Table-Row' align='left'><img src={require(`../../../Server/publicUploads/VoterPhotos/${row.image}`)}/></StyledTableCell>
+                                        {/* <StyledTableCell className='Table-Row' align='left'><img src={require(`../../../Server/publicUploads/VoterPhotos/${row.image}`)}/></StyledTableCell> */}
                                         <StyledTableCell className='Table-Row' component="th" scope="row">{row.firstName}</StyledTableCell>
                                         <StyledTableCell className='Table-Row' align='left'>{row.lastName}</StyledTableCell>
                                         <StyledTableCell className='Table-Row' align='left'>{row.age}</StyledTableCell>

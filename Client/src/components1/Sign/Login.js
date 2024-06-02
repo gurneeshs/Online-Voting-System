@@ -33,7 +33,7 @@ const Login = () => {
 
     const handleLogin = async () => {
         try {
-            const response = await axios.post('/login', { username, password });
+            const response = await axios.post('https://online-voting-system-smoky.vercel.app/login', { username, password });
             console.log(response.data.success); // Assuming backend sends a token upon successful login
             // Redirect or perform any action after successful login
             if(response.data.success){

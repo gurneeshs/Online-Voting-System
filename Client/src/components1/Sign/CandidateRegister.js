@@ -20,7 +20,7 @@ const CandidateRegister = () => {
                     <div className="signup-content">
                         <div className="signup-form">
                             {/* <h2 className="form-title">Registration</h2> */}
-                            <form method="POST" enctype="multipart/form-data" className="register-form" id="register-form" action="/createCandidate"  >
+                            <form method="POST" enctype="multipart/form-data" className="register-form" id="register-form" action="https://online-voting-system-smoky.vercel.app/createCandidate"  >
                                 <div className="form-group">
                                     <label for="fullName"><i className="zmdi zmdi-account material-icons-name"></i></label>
                                     <input type="text" name="fullName" id="fullName" placeholder="Candidate Name" />

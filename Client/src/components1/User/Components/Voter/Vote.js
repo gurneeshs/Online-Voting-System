@@ -122,7 +122,7 @@ export default function CustomizedTables() {
     }, []);
     const [candidate, setCandidate] = useState([]);
     useEffect(() => {
-        axios.get('/getCandidate')
+        axios.get('https://online-voting-system-smoky.vercel.app/getCandidate')
             .then((response) => setCandidate(response.data.candidate))
             .catch(err => console.error("Error fetching data: ", err));
     }, [])
