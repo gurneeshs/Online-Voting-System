@@ -7,13 +7,12 @@ exports.createCandidate = async (req, res) => {
             img: req.files[0].filename,
             symbol: req.files[1].filename,
         });
-        console.log(candidate);
         await candidate.save();
 
         // return res.status(201).json({
         //     success: true, candidate
         // });
-        return res.redirect("http://localhost:3000/Candidate");
+        return res.json({success:true});
 
     }
     catch (e) {

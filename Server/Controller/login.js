@@ -12,7 +12,7 @@ async function login(req, res, next) {
     try {
         // find user
         const voter = await Voter.findOne({
-            email:req.body.username//either email or mobile
+            email: req.body.username//either email or mobile
         })
         if (voter && voter._id) {
             const isValidPassword = await bcrypt.compare(
@@ -27,29 +27,31 @@ async function login(req, res, next) {
                 };
 
                 // Generate Token
-                // const token = jwt.sign(voterObject, process.env.JWT_SEC, {
-                //     expiresIn: process.env.JWT_EXPIRY,
-                // });
+                const token = jwt.sign(voterObject, process.env.JWT_SEC, {
+                    expiresIn: process.env.JWT_EXPIRY,
+                });
                 // // Set Cookie
                 // console.log(voterObject);
                 res.cookie('Voter', voter._id, {
                     maxAge: process.env.JWT_EXPIRY,
                     httpOnly: true,
+                    sameSite: 'Lax',
                     // signed: true,
+                    secure: false,
                 })
 
-                res.locals.loggedInUser = voterObject;
+                // res.locals.loggedInUser = voterObject;
                 // return res.redirect("http://localhost:3000/User");
-                res.json({success:true})
-                
+                res.json({ success: true , voterObject})
+
             }
             else {
                 alert("Invalid Password")
-               return res.status(400).json({success:false});
+                return res.status(400).json({ success: false });
             }
         }
         else {
-            return res.json({message:"Invalid Unsername or Password"});
+            return res.json({ message: "Invalid Unsername or Password" });
         }
 
     }
@@ -68,7 +70,7 @@ async function login(req, res, next) {
     }
 }
 
-function logout(req,res){
+function logout(req, res) {
     res.clearCookie('Voter');
     // res.redirect("/Login");
     res.send("Logout");

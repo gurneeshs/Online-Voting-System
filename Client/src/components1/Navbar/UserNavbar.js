@@ -7,10 +7,14 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import './CSS/Nav.css'
 import axios from 'axios';
+import Cookies from 'js-cookie';
+
 // import { logout } from '../../../../Server/Controller/login';
 
 function UserNavbar() {
   const handleLogout = () => {
+    Cookies.remove('myCookie')
+
     axios.post('/logout');
 
     // Redirect or update the UI to reflect logout

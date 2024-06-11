@@ -18,7 +18,8 @@ import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
-
+import { BASE_URL } from '../../../../helper';
+import Cookies from 'js-cookie';
 
 const style = {
     position: 'absolute',
@@ -121,8 +122,9 @@ export default function CustomizedTables() {
         });
     }, []);
     const [candidate, setCandidate] = useState([]);
+    const voterid = Cookies.get('myCookie')
     useEffect(() => {
-        axios.get('https://online-voting-system-smoky.vercel.app/getCandidate')
+        axios.get(`${BASE_URL}/getCandidate`)
             .then((response) => setCandidate(response.data.candidate))
             .catch(err => console.error("Error fetching data: ", err));
     }, [])
@@ -131,7 +133,7 @@ export default function CustomizedTables() {
     useEffect(() => {
         // const token = localStorage.getItem('token'); // Assuming token is stored in localStorage
         // console.log(token);
-        axios.get('/getVoterbyID')
+        axios.get(`${BASE_URL}/getVoterbyID/${voterid}`)
             .then((response) => {
                 setVoter(response.data.voter);
             })
@@ -155,7 +157,7 @@ export default function CustomizedTables() {
         }
         else {
             voter.voteStatus = true;
-            axios.patch(`/getCandidate/${id}`)
+            axios.patch(`${BASE_URL}/getCandidate/${id}`)
                 .then(response => {
                     // Update the vote count in the local state
                     // setCandidates(candidates.map(candidate => {
@@ -170,7 +172,7 @@ export default function CustomizedTables() {
                 });
             handleOpen()
 
-            axios.patch(`/updateVoter/${voter._id}`, voter);
+            axios.patch(`${BASE_URL}/updateVoter/${voter._id}`, voter);
         };
     }
 
@@ -230,7 +232,7 @@ export default function CustomizedTables() {
                                             row.img ? (
                                                 <span className='Name-Row image'><Avatar
                                                     alt="Remy Sharp"
-                                                    src={require(`../../../../Server/publicUploads/CandidatePhotos/${row.img}`)}
+                                                    src={require(`../../../../../../Server/publicUploads/CandidatePhotos/${row.img}`)}
                                                     sx={{ width: 60, height: 60, marginLeft: 0 }}
                                                 /></span>
                                                 
@@ -247,7 +249,7 @@ export default function CustomizedTables() {
                                             row.symbol ? (
                                                 <img 
                                                     alt="Remy Sharp"
-                                                    src={require(`../../../../Server/publicUploads/CandidatePhotos/${row.symbol}`)}
+                                                    src={require(`../../../../../../Server/publicUploads/CandidatePhotos/${row.symbol}`)}
                                                     
                                                 />
 

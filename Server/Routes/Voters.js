@@ -25,7 +25,7 @@ router.post('/login',login);
 
 router.post('/logout',logout);
 
-router.get('/getVoterbyID',redirectLoggedIn, getVoterbyID);
+router.get('/getVoterbyID/:id', getVoterbyID);
 
 
 

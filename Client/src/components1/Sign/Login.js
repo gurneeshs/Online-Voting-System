@@ -13,6 +13,7 @@ import { Navigate } from 'react-router-dom';
 import User from '../User/User';
 import { useNavigate } from 'react-router-dom';
 
+import { BASE_URL } from "../../helper";
 // const navigate = useNavigate();
 
 
@@ -33,13 +34,14 @@ const Login = () => {
 
     const handleLogin = async () => {
         try {
-            const response = await axios.post('https://online-voting-system-smoky.vercel.app/login', { username, password });
-            console.log(response.data.success); // Assuming backend sends a token upon successful login
+            const response = await axios.post(`${BASE_URL}/login`, { username, password });
+            // console.log(response.data.token); // Assuming backend sends a token upon successful login
             // Redirect or perform any action after successful login
+            const voterst = response.data.voterObject;
             if(response.data.success){
                 loginSuccess();
                 setTimeout(()=>{
-                    navigate('/User');
+                    navigate('/User', { state: { voterst } });
                 },2000)
             }
             else{

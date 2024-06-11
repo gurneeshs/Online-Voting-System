@@ -10,15 +10,13 @@ import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import { styled } from '@mui/material/styles';
 import TableRow from '@mui/material/TableRow';
-import modi_img from '../../User/Components/Voter/Images/modi.jpeg'
-import rahul_img from '../../User/Components/Voter/Images/rahul.jpeg'
 
 // import { React, useState } from "react";
 import TextField from "@mui/material/TextField";
 import { Button } from '@mui/material';
 import axios from 'axios';
 import CreateCandidate from './CreateCandidate'
-
+import { BASE_URL } from '../../../helper';
 
 const columns = [
     { id: 'fullname', label: `FullName`, minWidth: 150 },
@@ -53,11 +51,6 @@ function createData(fullname,party,bio,photo) {
     return { fullname,party,bio,photo };
 }
 
-const rows = [
-    createData('Narendra Modi','BJP','Demo Demo Demo',modi_img),
-    createData('Rahul Gandhi','Congress','Demo Demo Demo',rahul_img),
-
-];
 
 
 export default function CandidateTable() {
@@ -74,7 +67,7 @@ export default function CandidateTable() {
     };
     const [candidate, setCandidate] = useState([]);
     useEffect(() =>{
-        axios.get('https://online-voting-system-smoky.vercel.app/getCandidate')
+        axios.get(`${BASE_URL}/getCandidate`)
         .then((response) => setCandidate(response.data.candidate)) 
         .catch(err => console.error("Error fetching data: ", err));        
     },[])
@@ -106,7 +99,7 @@ export default function CandidateTable() {
                                     <StyledTableCell className='Table-Row' component="th" scope="row">{row.fullName}</StyledTableCell>
                                     <StyledTableCell className='Table-Row' align='left'>{row.party}</StyledTableCell>
                                     <StyledTableCell className='Table-Row' align="left">{row.bio}</StyledTableCell>
-                                    <StyledTableCell className='Table-Row' align="center"><img src={require(`../../../Server/publicUploads/CandidatePhotos/${row.img}`)}/></StyledTableCell>
+                                    <StyledTableCell className='Table-Row' align="center"><img src={require(`../../../../../Server/publicUploads/CandidatePhotos/${row.img}`)}/></StyledTableCell>
                                     <StyledTableCell className='Table-Row' align="left">
                                     <span id='edit' className='Button-span'><Button variant="contained">Edit</Button></span>
                                     <span id='delete' className='Button-span'><Button variant="contained">Delete</Button></span>

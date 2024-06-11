@@ -50,9 +50,10 @@ const checkLogin = (req, res, next) => {
 
 const redirectLoggedIn = function (req, res, next) {
   let cookies = req.cookies.Voter;
+  console.log(cookies);
 
   if (!cookies) {
-    res.redirect("http://localhost:3000/Login");
+    alert("Cookie not set");
   } else {
     // res.redirect("http://localhost:3000/Login");
     next();

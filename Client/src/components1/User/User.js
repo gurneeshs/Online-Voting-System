@@ -1,11 +1,30 @@
 import { useState, useEffect, React, useRef} from 'react';
+import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import UserNavbar from "../Navbar/UserNavbar";
 import './CSS/user.css'
 import UserCard from './Components/UserCard/userCard'
 import UpcomingElections from './Components/UpcomingElections';
 import ScrollReveal, { reveal } from "scrollreveal";
+import { BASE_URL } from '../../helper';
+import UserUtil from './UserUtil';
+import Cookies from 'js-cookie';
+
 const User = () =>{
+  const location = useLocation();
+  const { voterst } = location.state || {};
+  // console.log(voterst);
+  const setCookie = () => {
+    Cookies.set('myCookie', voterst.id, { expires: 7 }); // Set cookie for 7 days
+  };
+
+  const getCookie = () => {
+    const value = Cookies.get('myCookie');
+  };
+  if(!Cookies.get('myCookie')){
+    setCookie();
+  }
+  const voterid = Cookies.get('myCookie');
   const revealRefBottom = useRef(null);
   const revealRefLeft = useRef(null);  
   const revealRefTop = useRef(null);
@@ -65,9 +84,11 @@ const User = () =>{
 
     useEffect(() => {
       // const token = localStorage.getItem('token'); // Assuming token is stored in localStorage
-      // console.log(token);
-        axios.get('/getVoterbyID')
+      // console.log(token);'
+      // console.log(voter)
+        axios.get(`${BASE_URL}/getVoterbyID/${voterid}`)
           .then((response) => {
+            console.log(response.data)
             setVoter(response.data.voter);
           })
           .catch(error => {
@@ -83,7 +104,8 @@ const User = () =>{
             </div>
             <div className="userPage" >
                 <div className="userDetails" ref={revealRefLeft}>
-                    <UserCard/>
+                    <UserCard voter = {singleVoter}/>
+                    {/* <UserUtil voterid = {voterst.id} /> */}
                 </div>
                 <div className='details' ref={revealRefRight}>
                     <h2> Welcome to <span>Online Voting Platform</span></h2>

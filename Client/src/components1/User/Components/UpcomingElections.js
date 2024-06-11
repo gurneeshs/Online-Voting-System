@@ -1,7 +1,7 @@
 import { useState, useEffect, React, useRef} from 'react';
 import ScrollReveal, { reveal } from "scrollreveal";
 import { useNavigate } from 'react-router-dom';
-
+import Cookies from 'js-cookie';
 
 import "../CSS/upcomingElections.css"
 const UpcomingElections = ({voteStatus})=>{

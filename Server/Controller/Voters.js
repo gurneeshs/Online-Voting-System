@@ -6,6 +6,7 @@ const multer = require('multer')
 
 const Voters = require('../Model/Voters');
 const { checkLogin } = require("../Middleware/checkLogin");
+const { decode } = require("punycode");
 
 exports.createVoter = async (req, res) => {
     try {
@@ -26,7 +27,7 @@ exports.createVoter = async (req, res) => {
         // console.log(newVoter);
         // console.log(req.target.files[0]);
         await newVoter.save();
-        return res.redirect("http://localhost:3000/Login");
+        return res.json({success:true});
 
 
     }
@@ -41,8 +42,11 @@ exports.getVoters = async (req, res) => {
 }
 
 exports.getVoterbyID = async (req, res) => {
+    // const token = req.header('Authorization').replace('Bearer ', '');
+    // console.log(token)
     try {
-        const voterID = req.cookies.Voter;
+        const voterID = req.params.id;
+        // const decoded = jwt.verify(token, process.env.JWT_SEC);
         const voter = await Voters.findById(voterID);
         return res.json({ success: true, voter });
     }

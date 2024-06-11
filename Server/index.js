@@ -25,6 +25,11 @@ const multer = require('multer');
 
 // var cors = require('cors');
 app.use(cors());
+// app.use(cors({
+//     origin: 'http://localhost:3000', // Adjust the origin as per your frontend server
+//     credentials: true
+//   }));
+  
 dotenv.config();
 
 /**********************************************************************************************/
