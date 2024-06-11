@@ -13,12 +13,11 @@ function uploader(
     // Make Upload Object
 
     // File Upload Folder
-    const UPLOADS_FOLDER = `${__dirname}/../publicUploads/${subfolder_path}/`;
 
     // Define the Storage
     const storage = multer.diskStorage({
         destination:(req,file,cb)=>{
-            cb(null,UPLOADS_FOLDER);
+            cb(null,`publicUploads/${subfolder_path}`);
         },
         filename:(req,file,cb)=>{
             const fileExt = path.extname(file.originalname);
