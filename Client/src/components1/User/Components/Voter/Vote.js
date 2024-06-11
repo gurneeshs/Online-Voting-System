@@ -230,13 +230,15 @@ export default function CustomizedTables() {
                                     <StyledTableCell>
                                         {
                                             row.img ? (
-                                                <span className='Name-Row image'><Avatar
-                                                    alt="Remy Sharp"
-                                                    src={require(`../../../../../../Server/publicUploads/CandidatePhotos/${row.img}`)}
-                                                    sx={{ width: 60, height: 60, marginLeft: 0 }}
-                                                /></span>
-                                                
-                                            ): (<p>No image</p>)
+                                                <span className='Name-Row image'>
+                                                    <img
+                                                        alt="Remy Sharp"
+                                                        src={`${BASE_URL}/candidateimage/${row.img}`}
+
+                                                    />
+                                                </span>
+
+                                            ) : (<p>No image</p>)
 
                                         }
                                         <span className='Name-Row text' align='left'>{row.fullName}</span>
@@ -247,10 +249,10 @@ export default function CustomizedTables() {
                                     <StyledTableCell align="right" className='Symbol'>
                                         {
                                             row.symbol ? (
-                                                <img 
+                                                <img
                                                     alt="Remy Sharp"
-                                                    src={require(`../../../../../../Server/publicUploads/CandidatePhotos/${row.symbol}`)}
-                                                    
+                                                    src={`${BASE_URL}/candidateimage/${row.symbol}`}
+
                                                 />
 
                                             ) : (<p>No image</p>)

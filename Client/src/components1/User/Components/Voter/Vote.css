@@ -55,6 +55,9 @@
 }
 .image{
     /* background-color: red; */
+    /* border: 1px solid red; */
+    width: 20%;
+    height: 20%;
 }
 .text{
     transform: translateY(-100%);
@@ -107,7 +110,7 @@
 }
 .Symbol img{
     /* border: 1px solid red; */
-    width: 45%;
-    height: 40%;
+    width: 25%;
+    height: 20%;
 }
 
