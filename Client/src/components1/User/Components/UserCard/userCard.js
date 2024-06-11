@@ -17,7 +17,7 @@ export default function UserCard({ voter}) {
                     {/* <img src={require(`../../../../Server/publicUploads/VoterPhotos/${data}`)}/> */}
 
                     {
-                        voter.image ? (<img src={require(`${BASE_URL}/publicUploads/VoterPhotos/${voter.image}`)} alt='voter-image' />) : (<p>No image</p>)
+                        voter.image ? (<img src={`${BASE_URL}/voterimage/${voter.image}`} alt='voter-image' />) : (<p>No image</p>)
 
                     }
 

@@ -47,8 +47,10 @@ mongoose.connect(DB, {
 });
 
 // app.use(multer);
-app.use(express.static(path.join(__dirname, ".", "build")))
-app.use(express.static("public"));
+// app.use(express.static(path.join(__dirname, ".", "build")))
+// app.use(express.static("public"));
+app.use('/candidateimage', express.static('publicUploads/CandidatePhotos'));
+app.use('/voterimage', express.static('publicUploads/VoterPhotos'));
 app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(bodyParser.urlencoded({ extended: true }));

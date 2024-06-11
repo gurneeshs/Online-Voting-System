@@ -54,6 +54,7 @@ function createData(fullname,party,bio,photo) {
 
 
 export default function CandidateTable() {
+    const imageUrl = `http://localhost:5000/voterimage`;
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -94,12 +95,13 @@ export default function CandidateTable() {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
+
                             {candidate.map((row) => (
                                 <StyledTableRow key={row.fullname} className='Table-Row'>
                                     <StyledTableCell className='Table-Row' component="th" scope="row">{row.fullName}</StyledTableCell>
                                     <StyledTableCell className='Table-Row' align='left'>{row.party}</StyledTableCell>
-                                    <StyledTableCell className='Table-Row' align="left">{row.bio}</StyledTableCell>
-                                    <StyledTableCell className='Table-Row' align="center"><img src={require(`../../../../../Server/publicUploads/CandidatePhotos/${row.img}`)}/></StyledTableCell>
+                                    <StyledTableCell className='Table-Row' align="left">{row.img}</StyledTableCell>
+                                    <StyledTableCell className='Table-Row' align="center"><img src={`${BASE_URL}/candidateimage/${row.img}`}/></StyledTableCell>
                                     <StyledTableCell className='Table-Row' align="left">
                                     <span id='edit' className='Button-span'><Button variant="contained">Edit</Button></span>
                                     <span id='delete' className='Button-span'><Button variant="contained">Delete</Button></span>
