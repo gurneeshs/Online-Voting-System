@@ -1,18 +1,32 @@
 const Candidate = require('../Model/Candidate');
+const {uploadFile} = require('../Middleware/googledrive')
 
 exports.createCandidate = async (req, res) => {
     try {
+        const photo1Path = req.files.image[0].path;
+        const photo2Path = req.files.symbol[0].path;
+
+        const photo1Name = req.files.image[0].originalName;
+        const photo2Name = req.files.symbol[0].originalName;
+
+        const folderId1 = '19zEIt8Uo3HepCJkAPhfinNH6Gk2kUAxQ';
+        const folderId2 = '1wGLR2Unm09s4M7T1y9hl8RbW_u0u76HG';
+
+        const photo1Url = await uploadFile(photo1Path, photo1Name, folderId1);
+        const photo2Url = await uploadFile(photo2Path, photo2Name, folderId2);
+
+
         const candidate = new Candidate({
             ...req.body,
-            img: req.files[0].filename,
-            symbol: req.files[1].filename,
+            img: photo1Url,
+            symbol: photo2Url,
         });
         await candidate.save();
 
         // return res.status(201).json({
         //     success: true, candidate
         // });
-        return res.json({success:true});
+        return res.json({ success: true });
 
     }
     catch (e) {
@@ -25,10 +39,6 @@ exports.getCandidate = async (req, res) => {
     return res.json({ success: true, candidate });
 }
 
-// exports.getTaskbyID = async (req,res)=>{
-//     const task = await Task.findById(req.params.id);
-//     return res.json({success:true,task});
-// }
 
 exports.updateCandidate = async (req, res) => {
     try {
@@ -46,23 +56,24 @@ exports.updateCandidate = async (req, res) => {
     }
 }
 
-// exports.deleteTask = async (req,res)=>{
-//     try{
-//         const task  = await Task.findByIdAndDelete(req.params.id);
-//         if(!task){
-//                 return res.status(404).json({
-//                     success:false,
-//                     message:'User not found'})
-//             }
-//             return res.json({
-//                 success:true,
-//                 task
-//             });
-//     }
-//     catch(e){
-//         return res.status(400).json({
-//             success:false,
-//             message:e.message
-//         })
-//     }
-// }
+exports.deleteCandidate = async (req, res) => {
+    try {
+        console.log(req.params.id);
+        const candidate = await Candidate.findByIdAndDelete(req.params.id);
+        if (!candidate) {
+            return res.status(404).json({
+                success: false,
+                message: 'User not found'
+            })
+        }
+        return res.json({
+            success: true,
+        });
+    }
+    catch (e) {
+        return res.status(400).json({
+            success: false,
+            message: e.message
+        })
+    }
+}

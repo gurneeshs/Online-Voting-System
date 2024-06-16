@@ -1,0 +1,52 @@
+.SideNav-Container{
+    /* border: 1px solid blue; */
+    display: inline-flex;
+    position: relative;
+    min-height:auto;
+    background-color: black;
+    color:white;
+    padding: 1rem 2rem;
+    font-weight: 1.5rem;
+    width: 100%;
+    /* height:100%; */
+    /* margin: 3rem 0rem; */
+}
+.SideNav{
+    /* border: 1px solid red; */
+    display: flexbox;
+    /* height: 100vh; */
+
+}
+.SideNav .Headinga{
+    color:white;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.sidebar-content{
+    /* border: 1px solid green; */
+    padding: 1rem 0rem;
+    width: 100%;
+    /* height: 90vh; */
+}
+.sidebar-content .NavLink{
+    /* border: 1px solid red; */
+    padding: 0rem 1rem;
+    margin: 0;
+    text-decoration: none;
+}
+
+.SideNav-Headings{
+    /* border: 1px solid red; */
+    padding: 0rem;
+    font-weight: bold;
+}
+
+.SideNav-options{
+    /* border: 1px solid red; */
+    background-color: #333;
+    padding: 0.7rem 2rem;
+    color: white;
+    width: 100%;
+    text-decoration: none;
+    margin: 0rem 0.5rem;
+}

@@ -1,0 +1,41 @@
+.Candidates {
+    padding: 1rem;
+}
+h5{
+    color: rgb(54, 54, 54);
+    font-weight: bold;
+}
+.Candidates .Table{
+    /* border: 1px solid red; */
+    padding: 1rem;
+}
+#AddNew{
+    background-color: rgb(0, 81, 0);
+    font-size: 0.7rem;
+    margin: 0.5rem 1rem;
+}
+.Candidates .Table .Table-Column-Heading{
+    /* border: 1px solid green; */
+    background-color: black;
+    border: 1px solid whitesmoke;
+    color: white;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+.Candidates .Table .Table-Row{
+    font-size: 0.75rem;
+}
+.Candidates .Table .Table-Row img{
+    width: 80%;
+    height: 80%;
+}   
+
+.Candidates .Table #delete Button{
+    background-color: rgba(173, 0, 0, 0.766);
+}
+.Candidates .Table .Button-span{
+    margin: 0rem 0.3rem;
+}
+.Candidates .Table .Table-Row Button{
+    font-size: 0.75rem;
+}

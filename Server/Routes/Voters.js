@@ -4,19 +4,20 @@
 const Voters = require('../Model/Voters');
 const express = require('express');
 const router = express.Router();
-const { createVoter, getVoters, getVoterbyID, updateVoter } = require('../Controller/Voters');
+const { createVoter, getVoters, getVoterbyID, updateVoter, deleteVoter } = require('../Controller/Voters');
 const {photoUpload} = require('../Middleware/photoUpload');
 const {login, logout} = require('../Controller/login');
 const multer = require('multer');
 const { checkLogin, redirectLoggedIn } = require('../Middleware/checkLogin');
-const upload = multer({ dest: './publicUploads/VoterPhotos' });
+const upload = multer({ dest: 'uploads/' });
+
 
 /**********************************************************************************************/
 // POST METHOD
 // photoUpload();
 // const storage = multer.memoryStorage();
 // const upload = multer({ storage: storage });
-router.post('/createVoter', photoUpload, createVoter);
+router.post('/createVoter', upload.single('image'), createVoter);
 
 /**********************************************************************************************/
 router.get('/getVoter', getVoters);
@@ -35,6 +36,6 @@ router.get('/getVoterbyID/:id', getVoterbyID);
 router.patch('/updateVoter/:id',updateVoter);
 /**********************************************************************************************/
 // DELETE METHOD
-// router.delete('/task/:id',deleteTask);
+router.delete('/deleteVoter/:id',deleteVoter);
 /**********************************************************************************************/
 module.exports = router;

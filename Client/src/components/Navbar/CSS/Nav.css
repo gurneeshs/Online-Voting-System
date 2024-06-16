@@ -1,0 +1,72 @@
+
+.Nav{
+    /* border: 1px solid red; */
+    padding: 0.1rem;
+    /* display:block; */
+    /* overflow: hidden; */
+    width: 100%;
+    /* border-radius: 0.5rem; */
+    font-size: 1rem;
+    border-radius: 0rem;
+    /* background-color: #ecebeb58; */
+    background-color: black;
+    color: #89c4ee;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.Toggle{
+    /* border: 1px solid white; */
+    margin: 0rem;
+    background-color: #89c4ee;
+    padding: 0.2rem;
+}
+.AdminNav{
+    /* border: 1px solid red; */
+    padding: 0.1rem;
+    width: 100%;
+    font-size: 1rem;
+    background-color: black;
+    color: #89c4ee;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.Heading{
+    /* border: 1px solid red; */
+    padding: 0.4rem 1rem;
+    font-weight: bold;
+    background-color: black;
+    /* margin-right: 10rem; */
+    font-size: 1.3rem;
+    color: #89c4ee
+}
+.Heading:hover{
+    color:#89c4ee;
+}
+.Nav-items-container{
+    /* border: 1px solid green; */
+    margin: 0rem auto;
+    padding:0rem 3rem;
+
+}
+.Nav-items{
+    /* border: 1px solid red; */
+    margin: 0.5rem 0.5rem;
+    padding: 0.3rem;
+    font-size: 0.9rem;
+    border-radius: 0.5rem;
+    color: #89c4ee
+}
+.Nav-items Button{
+    background-color: rgba(255, 255, 255, 0);
+    padding: 0rem;
+    border-color: rgba(255, 255, 255, 0);
+    color: #89c4ee;
+}
+.Nav-items Button:hover{
+    background-color: rgba(255, 255, 255, 0);
+    border-color: rgba(255, 255, 255, 0);
+    color: black;
+}
+.Nav-items:hover{
+    background-color: #89c4ee;
+    color: black;
+}

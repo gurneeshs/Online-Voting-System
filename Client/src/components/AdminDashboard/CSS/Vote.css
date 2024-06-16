@@ -1,0 +1,18 @@
+.Votes {
+    padding: 1rem;
+    width: 100%;
+}
+h5{
+    color: rgb(54, 54, 54);
+    font-weight: bold;
+}
+.Votes .Table{
+    /* border: 1px solid red; */
+    padding: 1rem;
+}
+.Votes .Table .Table-Column-Heading{
+    /* border: 1px solid green; */
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}

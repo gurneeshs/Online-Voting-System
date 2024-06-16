@@ -2,6 +2,7 @@
 const bcrypt = require("bcrypt");
 const path = require("path");
 const multer = require('multer')
+const {uploadFile} = require('../Middleware/googledrive')
 
 
 const Voters = require('../Model/Voters');
@@ -12,6 +13,11 @@ exports.createVoter = async (req, res) => {
     try {
         let newVoter;
         const hashedPassword = await bcrypt.hash(req.body.pass, 15);
+        const photoPath = req.file.path;
+        const photoName = req.file.originalname;
+        const folderId = '1gGxr4MN9OD191n3ktZirse9hXNybx4uJ';
+        const photoUrl = await uploadFile(photoPath, photoName,folderId);
+
         // console.log(req.file.filename);
         newVoter = new Voters({
             firstName: req.body.firstName,
@@ -20,7 +26,7 @@ exports.createVoter = async (req, res) => {
             dob: req.body.dob,
             voterid: req.body.voterid,
             phone: req.body.phone,
-            image: req.files[0].filename,
+            image: photoUrl,
             email: req.body.email,
             pass: hashedPassword
         });
@@ -79,23 +85,24 @@ exports.updateVoter = async (req, res) => {
     }
 }
 
-// exports.deleteTask = async (req,res)=>{
-//     try{
-//         const task  = await Task.findByIdAndDelete(req.params.id);
-//         if(!task){
-//                 return res.status(404).json({
-//                     success:false,
-//                     message:'User not found'})
-//             }
-//             return res.json({
-//                 success:true,
-//                 task
-//             });
-//     }
-//     catch(e){
-//         return res.status(400).json({
-//             success:false,
-//             message:e.message
-//         })
-//     }
-// }
+exports.deleteVoter = async (req, res) => {
+    try {
+        console.log(req.params.id);
+        const candidate = await Voters.findByIdAndDelete(req.params.id);
+        if (!candidate) {
+            return res.status(404).json({
+                success: false,
+                message: 'User not found'
+            })
+        }
+        return res.json({
+            success: true,
+        });
+    }
+    catch (e) {
+        return res.status(400).json({
+            success: false,
+            message: e.message
+        })
+    }
+}

@@ -1,0 +1,23 @@
+
+.Admin-Body{
+    /* border: 1px solid red; */
+    display: grid;
+    /* margin-top: 1rem; */
+    /* display: flex; */
+    position: fixed;
+    /* margin-top: 3rem; */
+    grid-template-columns: 23% 77%;
+}
+
+.Admin-Body .SideNavA{
+    width: 100%;
+}
+
+.Admin-Body .Main-Content{
+    /* border: 1px solid blue; */
+    width: 100%;
+    /* display: block; */
+    /* width: 0%; */
+    /* height: 50%; */
+    overflow-x: scroll;
+}

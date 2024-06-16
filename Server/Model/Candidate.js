@@ -30,11 +30,9 @@ const candidateSchema = new mongoose.Schema({
         required:true,
     },
     img: {
-        data: Buffer, 
         type: String 
     },
     symbol: {
-        data: Buffer, 
         type: String 
     },
 

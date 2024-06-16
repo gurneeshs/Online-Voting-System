@@ -1,0 +1,30 @@
+.Features{
+    /* border: 1px solid red; */
+    /* overflow: hidden; */
+    margin: 2rem auto;
+}
+
+.Features h2{
+    margin: 1rem auto;
+    justify-content: center;
+    text-align: center;
+    color: #89c4ee;
+}
+.Features-Content{
+    /* border: 1px solid blue; */
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.Features-Content .Features-Content-Card{
+    /* border: 1px solid green; */
+    border-radius: 5%;
+    background-color: whitesmoke;
+    width: 90%;
+    margin: 1rem 0rem;
+    padding: 1.5rem;
+}
+.Features-Content .Features-Content-Card h5{
+    text-align: center;
+    justify-content: center;
+}

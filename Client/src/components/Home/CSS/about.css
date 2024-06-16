@@ -1,0 +1,31 @@
+.AboutUs{
+    /* border: 1px solid red; */
+    padding: 1rem;
+    
+}
+.AboutUs h2{
+    margin: 3rem auto;
+    text-align: center;
+    align-items: center;
+    color: whitesmoke;
+}
+
+.About-Content{
+    /* border: 1px solid red; */
+    display: flex;
+    margin: 2rem;
+    padding: 2rem;
+}
+
+.About-Content .image{
+    /* border: 1px solid green; */
+    margin: 0.2rem 1rem;
+}
+
+.About-Content .textAbout{
+    /* border: 1px solid blue; */
+    margin: 0.2rem 1rem;
+}
+.About-Content .textAbout p{
+    color: white;
+}

@@ -4,22 +4,17 @@ const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors');
 const cookieParser = require("cookie-parser");
-var session = require('express-session')
 const dotenv = require("dotenv");
 const path = require("path");
-
 const voterRoutes = require('./Routes/Voters');
 const candidateRoutes = require('./Routes/Candidate');
 const votesRoute = require('./Routes/Votes');
-const loginRoute = require('./Routes/login');
 const bodyParser = require('body-parser');
-const photoUpload = require('./Middleware/photoUpload');
 
-// const multer = require('multer')
-const { createVoter, getVoters } = require('./Controller/Voters');
 const DB = "mongodb+srv://gsnarang:kqdzddJCjxRanlGO@atlascluster.4ambzdp.mongodb.net/?retryWrites=true&w=majority&appName=AtlasCluster"
 
 
+//********************************************************************************************************* */
 const Voters = require('./Model/Voters');
 const multer = require('multer');
 
@@ -29,7 +24,7 @@ app.use(cors());
 //     origin: 'http://localhost:3000', // Adjust the origin as per your frontend server
 //     credentials: true
 //   }));
-  
+
 dotenv.config();
 
 /**********************************************************************************************/

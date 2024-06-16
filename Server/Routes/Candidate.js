@@ -5,12 +5,15 @@
 const Candidate = require('../Model/Candidate');
 const express = require('express');
 const router = express.Router();
+const multer = require('multer')
 const { candidatephotoUpload, candidateSymbolUpload } = require('../Middleware/photoUpload')
-const { createCandidate, getCandidate, updateCandidate } = require('../Controller/Candidate');
+const { createCandidate, getCandidate, updateCandidate, deleteCandidate } = require('../Controller/Candidate');
+const upload = multer({ dest: 'uploads/' });
+
 
 /**********************************************************************************************/
 // POST METHOD
-router.post('/createCandidate', candidatephotoUpload, createCandidate);
+router.post('/createCandidate',upload.fields([{ name: 'image' }, { name: 'symbol' }]), createCandidate);
 
 /**********************************************************************************************/
 router.get('/getCandidate', getCandidate);
@@ -19,6 +22,8 @@ router.get('/getCandidate', getCandidate);
 /**********************************************************************************************/
 // UPDATE DATA
 router.patch('/getCandidate/:id', updateCandidate);
+
+router.delete('/deleteCandidate/:id', deleteCandidate);
 /**********************************************************************************************/
 // DELETE METHOD
 // router.delete('/task/:id',deleteTask);

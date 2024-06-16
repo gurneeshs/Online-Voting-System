@@ -1,0 +1,116 @@
+
+.Vote-Page{
+    /* border: 1px solid red; */
+    /* background-image: url('../../../Home/Images/img2.jpg'); */
+    /* background-color: rgb(231, 231, 231); */
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+.candidate{
+    /* border: 1px solid green; */
+    margin: 0rem 1rem;
+    padding: 3rem;
+
+}
+.candidate h2{
+    color: whitesmoke;
+    margin: 1rem auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.TableRow{
+    background-color:#89c4ee;
+
+}
+.TableRow .table_row_heading{
+    font-size: 1.1rem;
+    font-weight: bolder;
+    /* border: 1px solid red; */
+
+}
+.Heading1{
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.Heading1 p{
+    font-weight: bold;
+    font-size: 1.7rem;
+    color: whitesmoke;
+}
+.Heading1 p span{
+    font-weight: bold;
+    color: #89c4ee;
+}
+.Name-Row{
+    /* border: 1px solid green; */
+    margin: 0rem 0.3rem;
+    display: inline-flex;
+}
+.image{
+    /* background-color: red; */
+    /* border: 1px solid red; */
+    width: 20%;
+    height: 20%;
+}
+.text{
+    transform: translateY(-100%);
+}
+.Name-Row img{
+    width: 100%;
+    height: 100%;
+}
+.User-Card1{
+    width: 25%;
+    height: 25%;
+    margin: 0.5rem auto;
+    margin-top: 2rem;
+}
+.voteButton{
+}
+.voteButton button{
+    background-color: rgb(9, 9, 82);
+    border-radius: 6rem;
+    padding: 0.5rem 2rem;
+
+}
+.VoteContent{
+    /* border: 1px solid red; */
+    padding: 0;
+    /* width: 60%; */
+}
+.VoteGivenBox{
+    border: 1px solid green;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.VoteGivenBox button{
+    background-color: rgb(9, 9, 82);
+    padding: 0.5rem 0rem;
+    margin: 0.5rem;
+    font-size: 1.1rem;
+    border-radius: 1.5rem;
+    color: whitesmoke;
+
+}
+.VoteGivenBox button a{
+    /* border: 1px solid white; */
+    width: 100%;
+    padding: 1rem 4rem;
+    color: whitesmoke;
+    text-decoration: none;
+}
+.Symbol img{
+    /* border: 1px solid red; */
+    width: 25%;
+    height: 20%;
+}
+

@@ -1,0 +1,58 @@
+.Dashboard{
+    margin: 0.5rem 1rem;
+    padding: 1rem;
+    overflow-y: scroll;
+    height: 80%;
+    width: 100%;
+}
+.Card{
+
+    width: 30%;
+    display: inline-flex;
+    height: 100%;
+    margin: 1rem 0.5rem;
+}
+h5{
+    color: rgb(54, 54, 54);
+    font-weight: bold;
+}
+.Card-items{
+    border: 1px solid black;
+    width: 100%;
+    color: white;
+    /* transform: translate(10% ,10%); */
+}
+#Item0{
+    background-color:#015800c9;
+}
+#Item1{
+    background-color:#b40a0ad6;
+}
+#Item2{
+    background-color:#00528af2;
+}
+
+.Card .Head{
+    color: white;
+    font-weight: bold;
+    margin-bottom: 0rem;
+
+}
+.Card .Body{
+    font-size: 1rem;
+}
+.Card .Footer{
+    color: white;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 0rem;
+
+
+}
+.Card .Footer Button{
+    color: white;
+    text-align: center;
+    margin: 0rem auto;
+    margin-top: 1rem;
+}
