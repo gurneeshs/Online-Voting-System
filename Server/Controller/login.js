@@ -4,6 +4,7 @@ const createError = require("http-errors");
 
 // internal imports
 const Voter = require("../Model/Voters");
+const Admin = require("../Model/Admin");
 const { checkLogin } = require("../Middleware/checkLogin");
 
 
@@ -30,18 +31,6 @@ async function login(req, res, next) {
                 const token = jwt.sign(voterObject, process.env.JWT_SEC, {
                     expiresIn: process.env.JWT_EXPIRY,
                 });
-                // // Set Cookie
-                // console.log(voterObject);
-                res.cookie('Voter', voter._id, {
-                    maxAge: process.env.JWT_EXPIRY,
-                    httpOnly: true,
-                    sameSite: 'Lax',
-                    // signed: true,
-                    secure: false,
-                })
-
-                // res.locals.loggedInUser = voterObject;
-                // return res.redirect("http://localhost:3000/User");
                 res.json({ success: true , voterObject})
 
             }
@@ -56,17 +45,37 @@ async function login(req, res, next) {
 
     }
     catch (e) {
-        // res.render("index",{
-        //     data:{
-        //         username:req.body.username,
-        //     },
-        //     errors:{
-        //         common:{
-        //             msg:e.message,
-        //         }
-        //     }
-        // })
         res.json("Login Failed 3");
+    }
+}
+async function adminlogin(req, res, next) {
+    try {
+        // find user
+        const admin = await Admin.findOne({
+            username: req.body.username//either email or mobile
+        })
+        if (admin && admin._id) {
+
+            if (admin.password==req.body.password) {
+                const adminObject = {
+                    id: admin._id,
+                    username: admin.username,
+                };
+                res.json({ success: true , adminObject})
+
+            }
+            else {
+                alert("Invalid Password")
+                return res.status(400).json({ success: false });
+            }
+        }
+        else {
+            return res.json({ message: "Invalid Unsername or Password" });
+        }
+
+    }
+    catch (e) {
+        res.json("Login Failed");
     }
 }
 
@@ -79,4 +88,5 @@ module.exports = {
     // getLogin,
     login,
     logout,
+    adminlogin,
 }

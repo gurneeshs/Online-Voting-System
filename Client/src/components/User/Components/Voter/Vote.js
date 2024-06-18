@@ -175,6 +175,7 @@ export default function CustomizedTables() {
             axios.patch(`${BASE_URL}/updateVoter/${voter._id}`, voter);
         };
     }
+    
 
 
 
@@ -244,13 +245,15 @@ export default function CustomizedTables() {
                                         <span className='Name-Row text' align='left'>{row.fullName}</span>
 
                                     </StyledTableCell>
-                                    <StyledTableCell align='left'>{row.party}</StyledTableCell>
+                                    <StyledTableCell align='left'>{row.symbol}</StyledTableCell>
                                     <StyledTableCell align="center">{row.age}</StyledTableCell>
                                     <StyledTableCell align="right" className='Symbol'>
                                         {
+                                            
                                             row.symbol ? (
+                                                
                                                 <img
-                                                    alt="Remy Sharp"
+                                                    alt={row.symbol}
                                                     src={row.symbol}
 
                                                 />

@@ -107,7 +107,7 @@ export default function CandidateTable() {
                                     <StyledTableCell className='Table-Row' component="th" scope="row">{row.fullName}</StyledTableCell>
                                     <StyledTableCell className='Table-Row' align='left'>{row.party}</StyledTableCell>
                                     <StyledTableCell className='Table-Row' align="left">{row.bio}</StyledTableCell>
-                                    <StyledTableCell className='Table-Row' align="center"><img src={row.img}/></StyledTableCell>
+                                    <StyledTableCell className='Table-Row' align="center"><img src={row.img} alt={row.img}/></StyledTableCell>
                                     <StyledTableCell className='Table-Row' align="left">
                                     <span id='edit' className='Button-span'><Button variant="contained" >Edit</Button></span>
                                     <span id='delete' className='Button-span'><Button variant="contained" onClick={()=> deleteCandidate(row._id)}>Delete</Button></span>

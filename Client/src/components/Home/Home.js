@@ -7,6 +7,7 @@ import About from "./About"
 import Features from "./Features"
 import Contact from "./Contact"
 import FAQ from "./FAQ"
+import UpcomingFeatures from "./Upcoming"
 
 const Home = () => {
     return (
@@ -17,6 +18,8 @@ const Home = () => {
             <About/>
             <Features/>
             <FAQ/>
+            <UpcomingFeatures/>
+            <Contact/>
             </div>
         </div>
     )

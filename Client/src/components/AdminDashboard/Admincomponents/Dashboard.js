@@ -11,21 +11,41 @@ import axios from 'axios';
 import { BASE_URL } from '../../../helper';
 
 export default function Dashboard() {
+
+    const [cardData, setcardData] = useState();
     const [candidate, setCandidate] = useState([]);
-    useEffect(() =>{
+    useEffect(() => {
         axios.get(`${BASE_URL}/getCandidate`)
-        .then((response) => setCandidate(response.data.candidate)) 
-        .catch(err => console.error("Error fetching data: ", err));        
-    },[])
+            .then((response) => setCandidate(response.data.candidate))
+            .catch(err => console.error("Error fetching data: ", err));
+    }, [])
+    useEffect(() => {
+        axios.get(`${BASE_URL}/getDashboardData`)
+            .then((response) => setcardData(response.data.DashboardData))
+            .catch(err => console.error("Error fetching data: ", err));
+    }, [])
+    if (candidate.length == 0 && !cardData) {
+        return <div>Not Set</div>
+    }
+    const parties = [];
+    const vote = [];
+    // Use a for loop to iterate over the candidates data and extract the party names
+    for (let i = 0; i < candidate.length; i++) {
+        const candidated = candidate[i];
+        if (candidated && candidated.party && !parties.includes(candidated.party)) {
+            parties.push(candidated.party);
+            vote.push(candidated.votes);
+        }
+    }
     return (
         <div className='Dashboard'>
             <h5>Dashboard</h5>
-            <div>
+            {(cardData && candidate) ? (<div>
 
                 <Card className='Card'>
                     <CardContent className='Card-items' id='Item0'>
                         <Typography variant='h5' color="text.secondary" gutterBottom className='Head'>
-                            <CountUp end={4} />
+                            <CountUp end={cardData.candidateCount} />
                         </Typography>
                         <Typography variant="h6" component="div" className='Body'>
                             No. of Candidates
@@ -39,7 +59,7 @@ export default function Dashboard() {
                 <Card className='Card'>
                     <CardContent className='Card-items' id='Item1'>
                         <Typography variant='h5' color="text.secondary" gutterBottom className='Head'>
-                            <CountUp end={56000} />
+                            <CountUp end={cardData.voterCount} />
                         </Typography>
                         <Typography variant="h6" component="div" className='Body'>
                             Total Voters
@@ -53,7 +73,7 @@ export default function Dashboard() {
                 <Card className='Card'>
                     <CardContent className='Card-items' id='Item2'>
                         <Typography variant='h5' color="text.secondary" gutterBottom className='Head'>
-                            <CountUp end={45360} />
+                            <CountUp end={cardData.votersVoted} />
                         </Typography>
                         <Typography variant="h6" component="div" className='Body'>
                             Voters Voted
@@ -65,16 +85,18 @@ export default function Dashboard() {
 
                 </Card>
             </div>
+            ) : ("Loading")}
 
-            <div>
+            {candidate.length ? (<div>
                 <BarChart
-                    xAxis={[{ scaleType: 'band', data: ['BJP', 'Congress', 'AAP'], categoryGapRatio: 0.6 }]}
-                    series={[{ data: [5000,4000,2000] }]}
+                    xAxis={[{ scaleType: 'band', data: parties, categoryGapRatio: 0.6 }]}
+                    series={[{ data: vote }]}
                     width={800}
                     height={400}
                 />
 
             </div>
+            ) : ("loading")}
             {/* <Tableau url="https://public.tableau.com/views/MarketingCohortsAnalysis"/> */}
 
 

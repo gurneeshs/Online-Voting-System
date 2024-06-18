@@ -1,8 +1,7 @@
 import "./SignUtils/CSS/Sign.css"
 import "./SignUtils/CSS/style.css.map"
 import "./SignUtils/fonts/material-icon/css/material-design-iconic-font.min.css"
-import ScriptTag from 'react-script-tag';
-import signinimage from "./SignUtils/images/signin-image.jpg"
+import signinimage from "./SignUtils/images/adminbanner.png"
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Nav_bar from "../Navbar/Navbar";
@@ -13,7 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import { BASE_URL } from "../../helper";
 
 
-const Login = () => {
+const AdminLogin = () => {
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -31,12 +30,12 @@ const Login = () => {
     const handleLogin = async () => {
         setLoading(true);
         try {
-            const response = await axios.post(`${BASE_URL}/login`, { username, password });
-            const voterst = response.data.voterObject;
+            const response = await axios.post(`${BASE_URL}/adminlogin`, { username, password });
+            console.log(response.data)
             if(response.data.success){
                 loginSuccess();
                 setTimeout(()=>{
-                    navigate('/User', { state: { voterst } });
+                    navigate('/Admin');
                 },2000)
             }
             else{
@@ -56,35 +55,36 @@ const Login = () => {
             <Nav_bar />
             <section className="sign-in">
                 <div className="container">
-                <p>Use user@gmail.com as email and 123 as password</p>
-
+                <p>Use admin as username and admin@123 as password</p>
 
                     <div className="signin-content">
                     
                         <div className="signin-image">
                             <figure><img src={signinimage} alt="sing up image" /></figure>
-                            <Link to="/Signup" className="signup-image-link">Create an account</Link>
                         </div>
 
                         <div className="signin-form">
-                            <h2 className="form-title">Sign In</h2>
+                            <h2 className="form-title">Admin Login</h2>
                             {/* <form method="" className="register-form" id="login-form"> */}
                             <ToastContainer />
                                 <div className="form-group">
                                     <label for="email"><i className="zmdi zmdi-account material-icons-name"></i></label>
-                                    <input type="email" name="email" id="email" placeholder="Enter Email" onChange={(e) => setUsername(e.target.value)} />
+                                    <input type="text" name="email" id="email" placeholder="Enter Admin Username" onChange={(e) => setUsername(e.target.value)} />
                                 </div>
                                 <div className="form-group">
                                     <label for="pass"><i className="zmdi zmdi-lock"></i></label>
-                                    <input type="password" name="pass" id="pass" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+                                    <input type="text" name="pass" id="pass" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
                                 </div>
                                 <div className="form-group form-button">
+                                    {/* <input type="submit" name="signin" id="signin" className="form-submit" value="Log in" onSubmit={handleLogin} /> */}
                                     <button onClick={handleLogin} disabled={loading}>{loading ? <div className="spinner"></div> : 'Login'}</button>
                                     
                                 </div>
+
                             {/* </form> */}
                         </div>
                     </div>
+
                 </div>
             </section>
 
@@ -92,4 +92,4 @@ const Login = () => {
 
     )
 }
-export default Login;
+export default AdminLogin;

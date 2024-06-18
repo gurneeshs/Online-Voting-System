@@ -18,7 +18,7 @@ function Nav_bar() {
             <Nav.Link className="Nav-items" href="/">Home</Nav.Link>
             <Nav.Link className="Nav-items" href="/Signup">New Registration</Nav.Link>
             <Nav.Link className="Nav-items" href="/Login">Login</Nav.Link>
-            <Nav.Link className="Nav-items" href="/Admin">Admin</Nav.Link>
+            <Nav.Link className="Nav-items" href="/AdminLogin">Admin</Nav.Link>
           </Nav>
         </Navbar.Collapse>
     </Navbar>

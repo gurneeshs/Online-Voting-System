@@ -40,4 +40,22 @@ const uploadFile = async (filePath, fileName, folderId) => {
     return `https://drive.google.com/thumbnail?id=${response.data.id}`;
 };
 
-module.exports = { uploadFile };
+const getGoogleDriveFileId = (link) => {
+    const match = link.match(/id=([a-zA-Z0-9_-]+)/);
+    return match ? match[1] : null;
+  };
+  
+const deleteFile = async(link) => {
+    const auth = authorize();
+    const drive = google.drive({ version: 'v3', auth });
+    const fileId = getGoogleDriveFileId(link);
+    if (!fileId) {
+      return ("Invalid File ID");
+    }
+
+    // Delete the photo from Google Drive
+    await drive.files.delete({ fileId });
+    return; 
+}
+
+module.exports = { uploadFile, deleteFile };

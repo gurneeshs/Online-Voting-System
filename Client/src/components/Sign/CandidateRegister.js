@@ -14,8 +14,10 @@ import { symbol } from "prop-types";
 
 
 const CandidateRegister = () => {
+    const [loading, setLoading] = useState(false);
+
     const navigate = useNavigate();
-    const CreationSuccess = () => toast.success("Candidate Created Successfully", {
+    const CreationSuccess = () => toast.success("Candidate Created Successfully \n Click Anywhere to exit this screen", {
         // position: toast.POSITION.TOP_CENTER,
         className: "toast-message",
     });
@@ -51,6 +53,7 @@ const CandidateRegister = () => {
     };
 
     const handleSubmit = async (e) => {
+        setLoading(true);
         e.preventDefault();
 
         const formDataToSend = new FormData();
@@ -66,7 +69,7 @@ const CandidateRegister = () => {
                 }
             });
             if (response.data.success) {
-                // CreationSuccess();
+                CreationSuccess();
                 setTimeout(() => {
                      navigate('/Candidate');
                 }, 200)
@@ -76,8 +79,12 @@ const CandidateRegister = () => {
             }
         }
         catch (error) {
+            CreationFailed();
             console.error(error);
         }
+        finally {
+            setLoading(false);
+          }
     };
 
 
@@ -91,11 +98,14 @@ const CandidateRegister = () => {
                 <div className="container">
                     <div className="signup-content">
                         <div className="signup-form">
-                            <form method="POST" enctype="multipart/form-data" className="register-form" id="register-form" onSubmit={handleSubmit}>
+                        <ToastContainer />
+
+                            <form method="POST" enctype="multipart/form-data" className="register-form" id="register-form">
                                 <div className="form-group">
                                     <label for="fullName"><i className="zmdi zmdi-account material-icons-name"></i></label>
                                     <input type="text" name="fullName" id="fullName" value={formData.fullName} onChange={handleChange} placeholder="Candidate Name" />
                                 </div>
+                                
                                 <div className="form-group">
                                     <label for="age"><i className="zmdi zmdi-account material-icons-name"></i></label>
                                     <input type="text" name="age" id="age" value={formData.age} onChange={handleChange} placeholder="Candidate Age" />
@@ -119,7 +129,8 @@ const CandidateRegister = () => {
                                 </div>
 
                                 <div className="form-group form-button">
-                                    <input type="submit" name="signup" id="signup" className="form-submit" value="Create Candidate" />
+                                    {/* <input type="submit" name="signup" id="signup" className="form-submit" value="Create Candidate" /> */}
+                                    <button onClick={handleSubmit} disabled={loading} className="form-submit">{loading ? <div className="spinner"></div> : 'Create Candidate'}</button>
                                 </div>
                             </form>
                         </div>

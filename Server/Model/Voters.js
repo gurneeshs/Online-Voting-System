@@ -37,6 +37,9 @@ const voterSchema = new mongoose.Schema({
     image:{
         type:String,
     },
+    filepath:{
+        type:String,
+    },
     email:{
         type: String,
         trim: true,

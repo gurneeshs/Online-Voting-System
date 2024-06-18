@@ -1,5 +1,7 @@
 const Candidate = require('../Model/Candidate');
-const {uploadFile} = require('../Middleware/googledrive')
+const Voters = require('../Model/Voters');
+
+const {uploadFile,deleteFile} = require('../Middleware/googledrive')
 
 exports.createCandidate = async (req, res) => {
     try {
@@ -22,10 +24,6 @@ exports.createCandidate = async (req, res) => {
             symbol: photo2Url,
         });
         await candidate.save();
-
-        // return res.status(201).json({
-        //     success: true, candidate
-        // });
         return res.json({ success: true });
 
     }
@@ -58,8 +56,9 @@ exports.updateCandidate = async (req, res) => {
 
 exports.deleteCandidate = async (req, res) => {
     try {
-        console.log(req.params.id);
         const candidate = await Candidate.findByIdAndDelete(req.params.id);
+        deleteFile(candidate.img);
+        deleteFile(candidate.symbol)
         if (!candidate) {
             return res.status(404).json({
                 success: false,

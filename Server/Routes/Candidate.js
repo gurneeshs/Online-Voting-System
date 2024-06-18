@@ -6,7 +6,6 @@ const Candidate = require('../Model/Candidate');
 const express = require('express');
 const router = express.Router();
 const multer = require('multer')
-const { candidatephotoUpload, candidateSymbolUpload } = require('../Middleware/photoUpload')
 const { createCandidate, getCandidate, updateCandidate, deleteCandidate } = require('../Controller/Candidate');
 const upload = multer({ dest: 'uploads/' });
 

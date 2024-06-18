@@ -2,7 +2,9 @@
 const bcrypt = require("bcrypt");
 const path = require("path");
 const multer = require('multer')
-const {uploadFile} = require('../Middleware/googledrive')
+const {uploadFile, deleteFile} = require('../Middleware/googledrive')
+const fs = require('fs');
+
 
 
 const Voters = require('../Model/Voters');
@@ -18,7 +20,6 @@ exports.createVoter = async (req, res) => {
         const folderId = '1gGxr4MN9OD191n3ktZirse9hXNybx4uJ';
         const photoUrl = await uploadFile(photoPath, photoName,folderId);
 
-        // console.log(req.file.filename);
         newVoter = new Voters({
             firstName: req.body.firstName,
             lastName: req.body.lastName,
@@ -27,11 +28,10 @@ exports.createVoter = async (req, res) => {
             voterid: req.body.voterid,
             phone: req.body.phone,
             image: photoUrl,
+            filepath:photoPath,
             email: req.body.email,
             pass: hashedPassword
         });
-        // console.log(newVoter);
-        // console.log(req.target.files[0]);
         await newVoter.save();
         return res.json({success:true});
 
@@ -48,8 +48,6 @@ exports.getVoters = async (req, res) => {
 }
 
 exports.getVoterbyID = async (req, res) => {
-    // const token = req.header('Authorization').replace('Bearer ', '');
-    // console.log(token)
     try {
         const voterID = req.params.id;
         // const decoded = jwt.verify(token, process.env.JWT_SEC);
@@ -87,8 +85,11 @@ exports.updateVoter = async (req, res) => {
 
 exports.deleteVoter = async (req, res) => {
     try {
-        console.log(req.params.id);
         const candidate = await Voters.findByIdAndDelete(req.params.id);
+        deleteFile(candidate.image);
+        fs.unlink(candidate.filepath, (err) => {
+            if (err) console.error('Failed to delete file from local storage', err);
+          });
         if (!candidate) {
             return res.status(404).json({
                 success: false,

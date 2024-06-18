@@ -284,11 +284,32 @@ display-flex, .display-flex, .display-flex-center, .signup-content, .signin-cont
 
   }
   .form-button button{
-    background-color: #1da0f2;
-    border-radius: 0.5rem;
+    background-color: #89c4ee;
+    border-radius: 0.8rem;
     padding: 0.4rem 1rem;
-    color: white;
+    color: black;
   }
+  .spinner {
+    border: 2px solid black;
+    border-left-color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+
   .form-submit {
     display: inline-block;
     background: #6dabe4;
@@ -301,7 +322,8 @@ display-flex, .display-flex, .display-flex-center, .signup-content, .signin-cont
     -webkit-border-radius: 5px;
     -o-border-radius: 5px;
     -ms-border-radius: 5px;
-    margin-top: 25px;
+    margin-top: 10px;
+    margin: 2px auto;
     cursor: pointer; }
     .form-submit:hover {
       background: #4292dc; }
@@ -531,7 +553,6 @@ display-flex, .display-flex, .display-flex-center, .signup-content, .signin-cont
     margin-left: 110px;
     margin-right: 20px;
     margin-top: 10px; }
-  
   @media screen and (max-width: 1200px) {
     .signup {
       padding: 2rem 6rem;
