@@ -6,8 +6,8 @@ h5{
     font-weight: bold;
 }
 .Candidates .Table{
-    /* border: 1px solid red; */
     padding: 1rem;
+    /* min-height: 60vh; */
 }
 #AddNew{
     background-color: rgb(0, 81, 0);

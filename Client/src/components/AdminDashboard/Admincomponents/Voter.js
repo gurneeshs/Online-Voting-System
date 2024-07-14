@@ -17,13 +17,13 @@ import { BASE_URL } from '../../../helper';
 
 
 const columns = [
-    { id: 'image', label: `Photo`, minWidth: 100 },
-    { id: 'firstName', label: `FirstName`, minWidth: 120 },
+    { id: 'image', label: `Photo`, minWidth: 60 },
+    { id: 'firstName', label: `FirstName`, minWidth: 140 },
     { id: 'lastName', label: 'LastName', minWidth: 120 },
     { id: 'age', label: 'Age', minWidth: 70 },
-    { id: 'voterid', label: 'VoterID', minWidth: 120 },
-    { id: 'email', label: 'Email', minWidth: 150 },
-    { id: 'phone', label: 'Phone', minWidth: 110 },
+    { id: 'voterid', label: 'VoterID', minWidth: 150 },
+    { id: 'email', label: 'Email', minWidth: 170 },
+    { id: 'phone', label: 'Phone', minWidth: 140 },
     { id: 'action', label: 'Action', minWidth: 200 },
 
 ];

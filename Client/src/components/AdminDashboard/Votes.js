@@ -8,9 +8,6 @@ const Votes = () => {
         <div>
             <AdminNavbar />
             <div className="Admin-Body">
-                <div className="SideNav">
-                    <SideNav />
-                </div>
                 <div className="Main-Content">
                     <Vote />
                 </div>

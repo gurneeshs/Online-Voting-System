@@ -84,7 +84,7 @@ export default function CandidateTable() {
             <h5>Candidates</h5>
             <Button id='AddNew' variant="contained"><CreateCandidate/></Button>
             <div className='Table'>
-                <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+                <Paper sx={{ width: '100%', overflow: 'scroll' }}>
                     <TableContainer sx={{ maxHeight: 440 }}>
                         <Table stickyHeader aria-label="sticky table">
                             <TableHead >

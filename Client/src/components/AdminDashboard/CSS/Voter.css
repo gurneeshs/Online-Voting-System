@@ -6,8 +6,7 @@ h5{
     font-weight: bold;
 }
 .Voters .Table{
-    /* border: 1px solid red; */
-    overflow: scroll;
+    /* overflow: scroll; */
     padding: 1rem;
     width:auto;
 }
@@ -26,6 +25,9 @@ h5{
 }
 .Voters .Table .Table-Row{
     font-size: 0.75rem;
+}
+.Voters .Table .Table-Row img{
+    width: 100%;
 }
 .Voters .Table #delete Button{
     background-color: rgba(173, 0, 0, 0.766);

@@ -8,9 +8,6 @@ const admin = () => {
         <div>
             <AdminNavbar />
             <div className="Admin-Body">
-                <div className="SideNavA">
-                    <SideNav />
-                </div>
                 <div className="Main-Content">
                     <Dashboard />
                 </div>

@@ -1,12 +1,13 @@
 
 .Admin-Body{
     /* border: 1px solid red; */
-    display: grid;
+    /* display: grid; */
+    width: 100%;
     /* margin-top: 1rem; */
     /* display: flex; */
-    position: fixed;
+    /* position: fixed; */
     /* margin-top: 3rem; */
-    grid-template-columns: 23% 77%;
+    /* grid-template-columns: 23% 77%; */
 }
 
 .Admin-Body .SideNavA{
@@ -14,10 +15,9 @@
 }
 
 .Admin-Body .Main-Content{
-    /* border: 1px solid blue; */
     width: 100%;
-    /* display: block; */
+    display: flexbox;
     /* width: 0%; */
-    /* height: 50%; */
-    overflow-x: scroll;
+    min-height: 1rem;
+    /* overflow: scroll; */
 }

@@ -1,6 +1,6 @@
 // REQUIRE MONGOOSE & OTHER PACKAGES
 const express = require('express');
-const app = express();
+
 const mongoose = require('mongoose');
 const cors = require('cors');
 const cookieParser = require("cookie-parser");
@@ -14,7 +14,14 @@ const loginRoute = require('./Routes/login');
 const bodyParser = require('body-parser');
 const Voters = require('./Model/Voters');
 const multer = require('multer');
+const { Server } = require('socket.io');
+const http = require('http');
+
 const DB = "mongodb+srv://gsnarang:kqdzddJCjxRanlGO@atlascluster.4ambzdp.mongodb.net/?retryWrites=true&w=majority&appName=AtlasCluster"
+
+const app = express();
+const server = http.createServer(app);
+const io = new Server(server);
 
 
 app.use(cors());
@@ -52,6 +59,9 @@ app.use(votesRoute);
 app.use(adminRoute);
 app.use(loginRoute);
 
+// Voters.watch().on('change', (change) => {
+//     io.emit('voterUpdated');
+// });
 
 const port = 5000;
-app.listen(port, () => console.log(`server is running at port ${port}`));
+server.listen(port, () => console.log(`server is running at port ${port}`));

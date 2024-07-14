@@ -9,20 +9,18 @@ import './CSS/Nav.css'
 
 function AdminNavbar() {
   return (
-    <Navbar expand="lg" className="AdminNav">
-      <Container fluid>
-        <Navbar.Brand className='Heading'>Online Voting System</Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
-          <Nav
-            className="me-auto my-2 my-lg-0 Nav-items-container"
-            style={{ maxHeight: '100px' }}
-            navbarScroll
-          >
-
+    <Navbar expand="lg" className="Nav">
+      {/* <Container className='Nav'>*/}
+        <Navbar.Brand className ="Heading" href="/">Online Voting System</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" className='Toggle'/> 
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto Nav">
+            <Nav.Link className="Nav-items" href="/Admin">Dashboard</Nav.Link>
+            <Nav.Link className="Nav-items" href="/Voters">Voters</Nav.Link>
+            <Nav.Link className="Nav-items" href="/Candidate">Candidates</Nav.Link>
+            <Nav.Link className="Nav-items" href="/">Logout</Nav.Link>
           </Nav>
         </Navbar.Collapse>
-      </Container>
     </Navbar>
   );
 }
