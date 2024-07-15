@@ -83,5 +83,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://online-voting-system-server.onrender.com"
+  "proxy": "https://online-voting-system-server.onrender.com",
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+  }
 }
