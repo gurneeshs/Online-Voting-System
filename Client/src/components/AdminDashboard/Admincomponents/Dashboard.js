@@ -106,10 +106,7 @@ export default function Dashboard() {
             vote.push(candidated.votes);
         }
     }
-    // const ageGroups = Object.keys(ageGroupData);
-    // const voteCounts = Object.values(ageGroupData);
 
-    // console.log(ageGroupData)
     return (
         <div className='Dashboard'>
             <h5>Dashboard</h5>
