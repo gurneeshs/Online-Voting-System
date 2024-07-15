@@ -4,7 +4,7 @@ to = "/index.html"
 status = 200
 
 [build]
-  command = "npm install --force && npm run build"
+  command = "CI=false npm install --force && npm run build"
   publish = "build"
 
 [context.production.environment]
