@@ -1,6 +1,4 @@
 import "../../../Sign/SignUtils/CSS/Sign.css";
-import signupimage from "../../../Sign/SignUtils/images/signup-image.jpg"
-import { Link } from 'react-router-dom';
 import "../../../Sign/SignUtils/CSS/style.css.map"
 import UserNavbar from "../../../Navbar/UserNavbar";
 

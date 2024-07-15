@@ -2,8 +2,7 @@ import "./SignUtils/CSS/Sign.css"
 import "./SignUtils/CSS/style.css.map"
 import "./SignUtils/fonts/material-icon/css/material-design-iconic-font.min.css"
 import signinimage from "./SignUtils/images/adminbanner.png"
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useState} from 'react';
 import Nav_bar from "../Navbar/Navbar";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';

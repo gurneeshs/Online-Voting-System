@@ -1,9 +1,8 @@
 import "./SignUtils/CSS/Sign.css"
 import "./SignUtils/CSS/style.css.map"
 import "./SignUtils/fonts/material-icon/css/material-design-iconic-font.min.css"
-import ScriptTag from 'react-script-tag';
 import signinimage from "./SignUtils/images/signin-image.jpg"
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import { Link } from 'react-router-dom';
 import Nav_bar from "../Navbar/Navbar";
 import axios from "axios";

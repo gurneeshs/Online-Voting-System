@@ -1,16 +1,12 @@
 
 import "./SignUtils/CSS/Sign.css";
 import "./SignUtils/CSS/CandidateRegister.css";
-import signupimage from "./SignUtils/images/signup-image.jpg"
-import { Link } from 'react-router-dom';
 import "./SignUtils/CSS/style.css.map"
-import Nav_bar from "../Navbar/Navbar";
 import { ToastContainer, toast } from 'react-toastify';
 import { useState } from "react";
 import axios from "axios"
 import { BASE_URL } from "../../helper";
 import { useNavigate } from 'react-router-dom';
-import { symbol } from "prop-types";
 
 
 const CandidateRegister = () => {

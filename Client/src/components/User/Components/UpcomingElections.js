@@ -1,19 +1,18 @@
-import { useState, useEffect, React, useRef} from 'react';
-import ScrollReveal, { reveal } from "scrollreveal";
+import { useEffect, React, useRef} from 'react';
+import ScrollReveal from "scrollreveal";
 import { useNavigate } from 'react-router-dom';
-import Cookies from 'js-cookie';
 
 import "../CSS/upcomingElections.css"
 const UpcomingElections = ({voteStatus})=>{
     const navigate = useNavigate();
    
-    const handleButtonClick = () => {
-        if (voteStatus) {
-            alert("You Have Already Voted");
-        } else {
-            navigate('/Vote')
-        }
-      };
+    // const handleButtonClick = () => {
+    //     if (voteStatus) {
+    //         alert("You Have Already Voted");
+    //     } else {
+    //         navigate('/Vote')
+    //     }
+    //   };
     
     const revealRefBottom = useRef(null);
     const revealRefLeft = useRef(null);  

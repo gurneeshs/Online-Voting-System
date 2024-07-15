@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import './CSS/contact.css'
-import { BASE_URL } from '../../helper';
 import { ToastContainer, toast } from 'react-toastify';
 import emailjs from 'emailjs-com';
 
@@ -14,10 +12,10 @@ const Contact = () => {
     const [errorMessage, setErrorMessage] = useState('');
     const [loading, setLoading] = useState(false);
 
-    const sendingSuccess = (msg) => toast.success(msg, {
-        // position: toast.POSITION.TOP_CENTER,
-        className: "toast-message",
-    });
+    // const sendingSuccess = (msg) => toast.success(msg, {
+    //     // position: toast.POSITION.TOP_CENTER,
+    //     className: "toast-message",
+    // });
     const sendingFailed = (msg) => toast.error(msg, {
         // position: toast.POSITION.TOP_CENTER,
         className: "toast-message",

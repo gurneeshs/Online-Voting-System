@@ -1,7 +1,7 @@
 import './CSS/about.css'
 import AboutImage from './Images/voting7.jpg'
-import { useState, useEffect, React, useRef } from 'react';
-import ScrollReveal, { reveal } from "scrollreveal";
+import {useEffect, React, useRef } from 'react';
+import ScrollReveal from "scrollreveal";
 
 
 const About = () => {

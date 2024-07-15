@@ -1,7 +1,5 @@
-import { Link } from "react-router-dom"
 import Nav_bar from "../Navbar/Navbar"
 import './CSS/home.css'
-import HomeComponent from "./BackgroundSlider"
 import BackgroundSlider from "./BackgroundSlider"
 import About from "./About"
 import Features from "./Features"

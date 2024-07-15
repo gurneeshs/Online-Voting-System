@@ -5,7 +5,7 @@ import UserNavbar from "../Navbar/UserNavbar";
 import './CSS/user.css'
 import UserCard from './Components/UserCard/userCard'
 import UpcomingElections from './Components/UpcomingElections';
-import ScrollReveal, { reveal } from "scrollreveal";
+import ScrollReveal from "scrollreveal";
 import { BASE_URL } from '../../helper';
 import Cookies from 'js-cookie';
 
@@ -17,9 +17,9 @@ const User = () =>{
     Cookies.set('myCookie', voterst.id, { expires: 7 }); // Set cookie for 7 days
   };
 
-  const getCookie = () => {
-    const value = Cookies.get('myCookie');
-  };
+  // const getCookie = () => {
+  //   const value = Cookies.get('myCookie');
+  // };
   if(!Cookies.get('myCookie')){
     setCookie();
   }
