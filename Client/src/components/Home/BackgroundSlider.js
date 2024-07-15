@@ -14,7 +14,7 @@ const BackgroundSlider = () => {
     return (
         <div className="background-slider">
             <div className="sliding-image">
-                <img src= {require(`./Images/img${(currentImage%9+1)}.jpg`)} alt={`Image ${currentImage}`} className="background-image" />
+                <img src= {require(`./Images/img${(currentImage%9+1)}.jpg`)} alt="noimage" className="background-image" />
 
             </div>
             <div className="content">
