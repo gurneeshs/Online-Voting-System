@@ -2,3 +2,14 @@
 from = "/*"
 to = "/index.html"
 status = 200
+
+[build]
+  command = "npm install --force && npm run build"
+  publish = "build"
+
+[context.production.environment]
+  NODE_VERSION = "14"
+
+[context.deploy-preview]
+  command = "npm install --force && npm run build"
+  publish = "build"
