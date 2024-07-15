@@ -5,7 +5,7 @@ status = 200
 
 [build]
   base = "Client"
-  command = "CI=false npm install --force && npm run build"
+  command = "npm install --force && npm run build"
   publish = "Client/build"
 
 [context.production.environment]
