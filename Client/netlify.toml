@@ -4,8 +4,9 @@ to = "/index.html"
 status = 200
 
 [build]
+  base = "Client"
   command = "CI=false npm install --force && npm run build"
-  publish = "build"
+  publish = "Client/build"
 
 [context.production.environment]
   NODE_VERSION = "14"
