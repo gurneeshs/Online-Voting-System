@@ -74,7 +74,7 @@ const About = () => {
 
                 </div>
                 <div className='image' ref={revealRefRight}>
-                    <img src={AboutImage}></img>
+                    <img src={AboutImage} alt="noimage"></img>
                 </div>
             </div>
         </div>
