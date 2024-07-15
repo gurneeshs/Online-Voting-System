@@ -9,15 +9,15 @@ import CountUp from 'react-countup';
 import { BarChart } from '@mui/x-charts/BarChart';
 import axios from 'axios';
 import { BASE_URL } from '../../../helper';
-import io from 'socket.io-client';
+// import io from 'socket.io-client';
 
-const socket = io(`${BASE_URL}`);
+// const socket = io(`${BASE_URL}`);
 
 export default function Dashboard() {
 
     const [cardData, setcardData] = useState();
     const [candidate, setCandidate] = useState([]);
-    const [voters, setVoters] = useState([]);
+    // const [voters, setVoters] = useState([]);
     const [ageGroupData, setAgeGroupData] = useState({});
 
     const groupVotersByAge = (voters) => {
@@ -64,36 +64,36 @@ export default function Dashboard() {
             .catch(err => console.error("Error fetching data: ", err));
     }, [])
 
-    const fetchVoterData = async () => {
-        try {
-            const response = await axios.get(`${BASE_URL}/getVoter`); // Replace with your actual endpoint
-            setVoters(response.data.voter);
-            const groupedData = groupVotersByAge(voters);
-            setAgeGroupData(groupedData);
-        }
-        catch (err) {
-            console.log("Error Fetching Data", err);
-        }
-    }
+    // const fetchVoterData = async () => {
+    //     try {
+    //         const response = await axios.get(`${BASE_URL}/getVoter`); // Replace with your actual endpoint
+    //         setVoters(response.data.voter);
+    //         const groupedData = groupVotersByAge(voters);
+    //         setAgeGroupData(groupedData);
+    //     }
+    //     catch (err) {
+    //         console.log("Error Fetching Data", err);
+    //     }
+    // }
     useEffect(() => {
 
     }, [])
-    useEffect(() => {
-        // Fetch initial data
-        fetchVoterData();
+    // useEffect(() => {
+    //     // Fetch initial data
+    //     fetchVoterData();
 
-        // Listen for updates
-        socket.on('voterUpdated', () => {
-            fetchVoterData();
-        });
+    //     // Listen for updates
+    //     socket.on('voterUpdated', () => {
+    //         fetchVoterData();
+    //     });
 
-        // Cleanup on unmount
-        return () => {
-            socket.off('voterUpdated');
-        };
-    }, []);
+    //     // Cleanup on unmount
+    //     return () => {
+    //         socket.off('voterUpdated');
+    //     };
+    // }, []);
 
-    if (candidate.length == 0 && !cardData) {
+    if (candidate.length === 0 && !cardData) {
         return <div>Not Set</div>
     }
     const parties = [];
@@ -106,8 +106,8 @@ export default function Dashboard() {
             vote.push(candidated.votes);
         }
     }
-    const ageGroups = Object.keys(ageGroupData);
-    const voteCounts = Object.values(ageGroupData);
+    // const ageGroups = Object.keys(ageGroupData);
+    // const voteCounts = Object.values(ageGroupData);
 
     console.log(ageGroupData)
     return (
