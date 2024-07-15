@@ -100,7 +100,7 @@ export default function Voter() {
                                 {voters.map((row) => {
                                     return(
                                         <StyledTableRow key={row.firstName} className='Table-Row'>
-                                        <StyledTableCell className='Table-Row' align='left'><img src={row.image}/></StyledTableCell>
+                                        <StyledTableCell className='Table-Row' align='left'><img src={row.image}/ alt="noimage"></StyledTableCell>
                                         <StyledTableCell className='Table-Row' component="th" scope="row">{row.firstName}</StyledTableCell>
                                         <StyledTableCell className='Table-Row' align='left'>{row.lastName}</StyledTableCell>
                                         <StyledTableCell className='Table-Row' align='left'>{row.age}</StyledTableCell>
