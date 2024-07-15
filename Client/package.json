@@ -66,13 +66,9 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ],
+    "extends": "react-app",
     "rules": {
       "no-warning-comments": "warn"
-      // Add other rules here
     }
   },
   "browserslist": {
