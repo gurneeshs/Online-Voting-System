@@ -1,0 +1,44 @@
+.User{
+    background-color: black;
+    overflow-x: hidden;
+}
+.User .Heading2{
+    /* border: 1px solid black; */
+    margin: 1rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0.5rem;
+}
+.User .Heading2 h3{
+    color:white;
+}
+.User .Heading2 h3 span{
+    color:#89c4ee;
+    font-weight: bold;
+}
+.userPage{
+    /* border: 1px solid red; */
+    /* background-color: black; */
+    margin: 1rem 0rem;
+    display: grid;
+    grid-template-columns: 35% 65%;
+}
+.userDetails{
+    /* border: 1px solid green; */
+    margin: 1rem;
+    /* background-color: whitesmoke; */
+}
+h3{
+
+}
+
+.details{
+    /* border: 1px solid red; */
+    margin: 1rem;
+    color:white;
+}
+.details h2{
+    color:white;
+
+}
