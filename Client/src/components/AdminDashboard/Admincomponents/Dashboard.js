@@ -18,39 +18,39 @@ export default function Dashboard() {
     const [cardData, setcardData] = useState();
     const [candidate, setCandidate] = useState([]);
     // const [voters, setVoters] = useState([]);
-    const [ageGroupData, setAgeGroupData] = useState({});
+    // const [ageGroupData, setAgeGroupData] = useState({});
 
-    const groupVotersByAge = (voters) => {
-        const ageGroups = {
-            '18-25': 0,
-            '26-35': 0,
-            '36-45': 0,
-            '46-55': 0,
-            '56-65': 0,
-            '66-75': 0,
-            '76+': 0,
-        };
+    // const groupVotersByAge = (voters) => {
+    //     const ageGroups = {
+    //         '18-25': 0,
+    //         '26-35': 0,
+    //         '36-45': 0,
+    //         '46-55': 0,
+    //         '56-65': 0,
+    //         '66-75': 0,
+    //         '76+': 0,
+    //     };
 
-        voters.forEach(voter => {
-            if (voter.age >= 18 && voter.age <= 25) {
-                ageGroups['18-25']++;
-            } else if (voter.age >= 26 && voter.age <= 35) {
-                ageGroups['26-35']++;
-            } else if (voter.age >= 36 && voter.age <= 45) {
-                ageGroups['36-45']++;
-            } else if (voter.age >= 46 && voter.age <= 55) {
-                ageGroups['46-55']++;
-            } else if (voter.age >= 56 && voter.age <= 65) {
-                ageGroups['56-65']++;
-            } else if (voter.age >= 66 && voter.age <= 75) {
-                ageGroups['66-75']++;
-            } else if (voter.age >= 76) {
-                ageGroups['76+']++;
-            }
-        });
+    //     voters.forEach(voter => {
+    //         if (voter.age >= 18 && voter.age <= 25) {
+    //             ageGroups['18-25']++;
+    //         } else if (voter.age >= 26 && voter.age <= 35) {
+    //             ageGroups['26-35']++;
+    //         } else if (voter.age >= 36 && voter.age <= 45) {
+    //             ageGroups['36-45']++;
+    //         } else if (voter.age >= 46 && voter.age <= 55) {
+    //             ageGroups['46-55']++;
+    //         } else if (voter.age >= 56 && voter.age <= 65) {
+    //             ageGroups['56-65']++;
+    //         } else if (voter.age >= 66 && voter.age <= 75) {
+    //             ageGroups['66-75']++;
+    //         } else if (voter.age >= 76) {
+    //             ageGroups['76+']++;
+    //         }
+    //     });
 
-        return ageGroups;
-    };
+    //     return ageGroups;
+    // };
 
     useEffect(() => {
         axios.get(`${BASE_URL}/getCandidate`)
@@ -109,7 +109,7 @@ export default function Dashboard() {
     // const ageGroups = Object.keys(ageGroupData);
     // const voteCounts = Object.values(ageGroupData);
 
-    console.log(ageGroupData)
+    // console.log(ageGroupData)
     return (
         <div className='Dashboard'>
             <h5>Dashboard</h5>
