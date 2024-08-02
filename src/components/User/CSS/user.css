@@ -18,7 +18,6 @@
     font-weight: bold;
 }
 .userPage{
-    /* border: 1px solid red; */
     /* background-color: black; */
     margin: 1rem 0rem;
     display: grid;
@@ -41,4 +40,16 @@ h3{
 .details h2{
     color:white;
 
+}
+.details p{
+    text-align: justify;
+}
+
+@media (max-width: 1024px) {
+    .userPage{
+        border: 1px solid red;
+        /* background-color: black; */
+        margin: 1rem 0rem;
+        display: block;
+    }
 }

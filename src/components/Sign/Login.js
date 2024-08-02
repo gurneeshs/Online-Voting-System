@@ -22,7 +22,7 @@ const Login = () => {
         // position: toast.POSITION.TOP_CENTER,
         className: "toast-message",
     });
-    const loginFailed = () => toast.error("Invalid Details \n Please Try Again!",{
+    const loginFailed = () => toast.error(`Invalid Details or User Doesn't exist`,{
         // position: toast.POSITION.TOP_CENTER,
         className: "toast-message",
     });

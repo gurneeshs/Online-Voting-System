@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+
+ /* <uniquifier>: Use a unique and descriptive class name */
+/* // <weight>: Use a value from 200 to 900 */
+
+.source-sans-3{
+  font-family: "Source Sans 3", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+html,
+body,
+#root,
+.appNew,
+.content{
+    height:100%;
+    width:100%;
+    
+}
+
+.appNew{
+    display:flex;
+    position:relative;
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 300;
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track{
+    background: #e0e0e0;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb{
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-track:hover{
+    background: #555;
+}
+
+.mainBox{
+    overflow-y: scroll;
+    height: 85vh;
+}

@@ -11,7 +11,36 @@ import 'react-toastify/dist/ReactToastify.css';
 import { BASE_URL } from "../../helper";
 import { useNavigate } from 'react-router-dom';
 
-
+const stateCityMapping = {
+    "Andhra Pradesh": ["Visakhapatnam", "Vijayawada", "Guntur"],
+    "Arunachal Pradesh": ["Itanagar", "Tawang"],
+    "Assam": ["Guwahati", "Dibrugarh"],
+    "Bihar": ["Patna", "Gaya"],
+    "Chhattisgarh": ["Raipur", "Bhilai"],
+    "Goa": ["Panaji", "Margao"],
+    "Gujarat": ["Ahmedabad", "Surat"],
+    "Haryana": ["Chandigarh", "Gurugram"],
+    "Himachal Pradesh": ["Shimla", "Manali"],
+    "Jharkhand": ["Ranchi", "Jamshedpur"],
+    "Karnataka": ["Bengaluru", "Mysore"],
+    "Kerala": ["Thiruvananthapuram", "Kochi"],
+    "Madhya Pradesh": ["Bhopal", "Indore"],
+    "Maharashtra": ["Mumbai", "Pune"],
+    "Manipur": ["Imphal"],
+    "Meghalaya": ["Shillong"],
+    "Mizoram": ["Aizawl"],
+    "Nagaland": ["Kohima"],
+    "Odisha": ["Bhubaneswar", "Cuttack"],
+    "Punjab": ["Amritsar", "Ludhiana"],
+    "Rajasthan": ["Jaipur", "Udaipur"],
+    "Sikkim": ["Gangtok"],
+    "Tamil Nadu": ["Chennai", "Coimbatore"],
+    "Telangana": ["Hyderabad", "Warangal"],
+    "Tripura": ["Agartala"],
+    "Uttar Pradesh": ["Lucknow", "Kanpur"],
+    "Uttarakhand": ["Dehradun", "Haridwar"],
+    "West Bengal": ["Kolkata", "Darjeeling"],
+};
 
 export default function Signup() {
     const navigate = useNavigate();
@@ -30,6 +59,8 @@ export default function Signup() {
         firstName: '',
         lastName: '',
         age: '',
+        city: '',
+        state: '',
         dob: '',
         voterid: '',
         phone: '',
@@ -71,7 +102,7 @@ export default function Signup() {
             });
         }
     };
-
+    const cities = stateCityMapping[formData.state] || [];
     const handleFileChange = (e) => {
         setFormData({
             ...formData,
@@ -141,8 +172,26 @@ export default function Signup() {
                                     <input type="text" name="firstName" id="firstName" value={formData.firstName} onChange={handleChange} placeholder="Your First Name" required />
                                 </div>
                                 <div className="form-group">
-                                    <label for="lastName"><i className="zmdi zmdi-account material-icons-name"></i></label>
+                                    <label for="lastName"><i className="zmdi zmdi-account-box material-icons-name"></i></label>
                                     <input type="text" name="lastName" id="lastName" value={formData.lastName} onChange={handleChange} placeholder="Your Last Name" required />
+                                </div>
+                                <div className="form-group">
+                                    <label for="state"><i className="zmdi zmdi-map material-icons-name"></i></label>
+                                    <select name="state" id="state" value={formData.state} onChange={handleChange} required>
+                                        <option value="">Select Your State</option>
+                                        {Object.keys(stateCityMapping).map((state) => (
+                                            <option key={state} value={state}>{state}</option>
+                                        ))}
+                                    </select>
+                                </div>
+                                <div className="form-group">
+                                    <label for="city"><i className="zmdi zmdi-city material-icons-name"></i></label>
+                                    <select name="city" id="city" value={formData.city} onChange={handleChange} required>
+                                        <option value="">Select Your City</option>
+                                        {cities.map((city) => (
+                                            <option key={city} value={city}>{city}</option>
+                                        ))}
+                                    </select>
                                 </div>
 
                                 <div className="form-group">

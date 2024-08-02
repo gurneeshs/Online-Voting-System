@@ -6,11 +6,17 @@ import AdminLogin from './components/Sign/AdminLogin';
 import Login from './components/Sign/Login';
 import User from './components/User/User';
 import Signup from './components/Sign/Signup';
-import Admin from './components/AdminDashboard/Admin'
+import NewVoters from './components/NewDashboard/scenes/voters/NewVoters';
 import Vote from './components/User/Components/Voter/Vote';
-import Voters from './components/AdminDashboard/Voters';
-import Candidate from './components/AdminDashboard/Candidate';
 import EditProfile from './components/User/Components/EditProfile/EditProfile';
+import New from './components/NewDashboard/New';
+import NewCandidates from './components/NewDashboard/scenes/candidates/NewCandidates';
+import AddCandidate from './components/NewDashboard/scenes/NewCandidate/AddCandidate';
+import Calendar from './components/NewDashboard/scenes/calendar/Calendar';
+import Line from './components/NewDashboard/scenes/line/Line';
+import Pie from './components/NewDashboard/scenes/pie/Pie';
+import Result from './components/NewDashboard/scenes/result/Result';
+import UpcomingElection from './components/NewDashboard/scenes/upcoming/UpcomingElection';
 
 const Routing = ()=>{
 
@@ -20,12 +26,18 @@ const Routing = ()=>{
       <Route path='/Signup' element = {<Signup/>} />
       <Route path="/Login" element = {<Login/>} />
       <Route path="/AdminLogin" element = {<AdminLogin/>} />
-      <Route path="/Admin" element = {<Admin/>} />
-      <Route path="/Voters" element = {<Voters/>} />
-      <Route path="/Candidate" element = {<Candidate/>} />
+      <Route path="/Admin" element = {<New/>} />
+      <Route path="/LineChart" element = {<Line/>} />
+      <Route path="/BarChart" element = {<Result/>} />
+      <Route path="/PieChart" element = {<Pie/>} />
+      <Route path="/Voters" element = {<NewVoters/>} />
+      <Route path="/Candidate" element = {<NewCandidates/>} />
+      <Route path="/AddCandidate" element = {<AddCandidate/>} />
+      <Route path="/calendar" element ={<Calendar/>} />
       <Route path="/Edit" element ={<EditProfile/>} />
       <Route path="/User" element = {<User/>} />
       <Route path="/Vote" element = {<Vote/>} />
+      <Route path="/upcoming" element = {<UpcomingElection/>}/>
     </Routes>
   )
 }

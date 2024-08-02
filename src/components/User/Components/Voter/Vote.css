@@ -1,16 +1,12 @@
 
 .Vote-Page{
-    /* border: 1px solid red; */
-    /* background-image: url('../../../Home/Images/img2.jpg'); */
-    /* background-color: rgb(231, 231, 231); */
     background-color: black;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100%;
+    /* height: 100%; */
 }
 
 .candidate{
-    /* border: 1px solid green; */
     margin: 0rem 1rem;
     padding: 3rem;
 

@@ -126,13 +126,18 @@ display-flex, .display-flex, .display-flex-center, .signup-content, .signin-cont
     -o-transition: all 300ms ease 0s;
     -ms-transition: all 300ms ease 0s; }
   
-  input, select, textarea {
+  input, textarea {
     outline: none;
     appearance: unset !important;
     -moz-appearance: unset !important;
     -webkit-appearance: unset !important;
     -o-appearance: unset !important;
     -ms-appearance: unset !important; }
+  select{
+    padding: 0.4rem;
+    margin: 0rem 1rem;
+    width: 90%;
+  }
   
   input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     appearance: none !important;

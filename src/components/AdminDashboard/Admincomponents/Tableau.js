@@ -1,53 +1,46 @@
-import { reference } from '@popperjs/core';
-import React, { useRef, useEffect } from 'react';
-// var viz;
 
-// const TableauD = () => {
-//     const ref = useRef(null);
-//     const url = "https://public.tableau.com/views/MarketingCohortsAnalysis";
+import { PowerBIEmbed } from 'powerbi-client-react';
+import {models} from 'powerb--client';
+const PowerBIDashboard = () => {
 
-//     const initViz = () =>{
-//         viz.dispose()
+  return (
+    <div>
+      <PowerBIEmbed
+        embedConfig={{
+          type: 'report',   // Supported types: report, dashboard, tile, visual, qna, paginated report and create
+          id: '<Report Id>',
+          embedUrl: '<Embed Url>',
+          accessToken: '<Access Token>',
+          tokenType: models.TokenType.Embed, // Use models.TokenType.Aad for SaaS embed
+          settings: {
+            panes: {
+              filters: {
+                expanded: false,
+                visible: false
+              }
+            },
+            background: models.BackgroundType.Transparent,
+          }
+        }}
 
-//         viz = new tableau.Viz(ref.current, url, {
-//             width: "100%",
-//             height: "90vh",
-//         })
-//     }
+        eventHandlers={
+          new Map([
+            ['loaded', function () { console.log('Report loaded'); }],
+            ['rendered', function () { console.log('Report rendered'); }],
+            ['error', function (event) { console.log(event.detail); }],
+            ['visualClicked', () => console.log('visual clicked')],
+            ['pageChanged', (event) => console.log(event)],
+          ])
+        }
 
-//     useEffect(() =>{
-//         initViz()
-//     }, [])
+        cssClassName={"reportClass"}
 
-//     return(
-//         // <div>
-//             <div ref={ref}/> 
-//         // </div>
-//     )
-// };
+        getEmbeddedComponent={(embeddedReport) => {
+          window.report = embeddedReport;
+        }}
+      />
+    </div>
+  )
+}
 
-// export default TableauD;
-var tableau = require('tableau-api');
-
-const TableauEmbed = ({ url }) => {
-  const vizContainer = useRef(null);
-
-  useEffect(() => {
-    const initViz = () => {
-      new tableau.Viz(vizContainer.current, url, {
-        // Add options here if needed
-      });
-    };
-
-    initViz();
-
-    // Cleanup function
-    return () => {
-      // Code to cleanup Tableau viz
-    };
-  }, [url]);
-
-  return <div ref={vizContainer} />;
-};
-
-export default TableauEmbed;
+export default PowerBIDashboard;
