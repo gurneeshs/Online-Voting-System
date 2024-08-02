@@ -1,32 +1,41 @@
-.AboutUs{
+.AboutUs {
     /* border: 1px solid red; */
     padding: 1rem;
-    
+
 }
-.AboutUs h2{
+
+.AboutUs h2 {
     margin: 3rem auto;
     text-align: center;
     align-items: center;
     color: #89c4ee;
 }
 
-.About-Content{
+.About-Content {
     /* border: 1px solid red; */
     display: flex;
     margin: 2rem;
     padding: 2rem;
 }
 
-.About-Content .image{
+.About-Content .image {
     margin: 0.2rem 1rem;
     width: 100%;
     height: 100%;
 }
 
-.About-Content .textAbout{
+.About-Content .textAbout {
     /* border: 1px solid blue; */
     margin: 0.2rem 1rem;
 }
-.About-Content .textAbout p{
+
+.About-Content .textAbout p {
     color: white;
+    text-align: justify;
+}
+
+@media (max-width:480px) {
+    .About-Content .image {
+        display: none;
+    }
 }

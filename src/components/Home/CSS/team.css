@@ -54,3 +54,35 @@
     height: 40%;
     margin: 0.5rem auto;
 }
+@media (max-width:1024px){
+    .Team .Team-Content .Team-Content-Card{
+        /* border: 1px solid red; */
+        border-radius: 5%;
+        background-color: #1b1c1b;
+        width: 80%;
+        margin: 1rem 1rem;
+        padding: 1.5rem;
+        /* justify-content: center; */
+        /* align-items: center; */
+        text-align: center;
+    }    
+}
+@media (max-width:560px) {
+    .Team .Team-Content{
+        padding: 1rem;
+        display: block;
+        justify-content: center;
+    
+    }
+    .Team .Team-Content .Team-Content-Card{
+        /* border: 1px solid red; */
+        border-radius: 5%;
+        background-color: #1b1c1b;
+        width: 80%;
+        margin: 1rem 2rem;
+        padding: 1.5rem;
+        /* justify-content: center; */
+        /* align-items: center; */
+        text-align: center;
+    }    
+}

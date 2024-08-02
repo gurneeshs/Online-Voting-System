@@ -3,7 +3,7 @@
     /* max-width: 600px; */
     margin: 0 auto;
     padding: 0rem 6rem;
-    /* border: 1px solid #ccc; */
+    border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     align-items: center;
@@ -29,6 +29,7 @@
 
 .contact-form input, 
 .contact-form textarea {
+
     width: 100%;
     margin: 1rem 0rem;
     padding: 10px;
@@ -53,4 +54,13 @@
 
 .contact-form .error-message {
     color: red;
+}
+
+@media (max-width:480px) {
+    .contact-form{
+        padding: 0rem 1rem;
+    }
+    .contact-field{
+        width: 100%;
+    }
 }

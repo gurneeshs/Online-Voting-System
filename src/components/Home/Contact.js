@@ -60,7 +60,7 @@ const Contact = () => {
             <h2>Contact Us</h2>
             <ToastContainer />
             <form>
-                <div>
+                <div className='contact-field'>
                     <input
                         type="text"
                         value={name}
